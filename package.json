@@ -15,9 +15,10 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "eslint": "^8.49.0",
-    "eslint-config-manzdev": "^0.0.3",
-    "stylelint": "^15.10.3",
+    "bootstrap": "5.3.3",
+    "eslint": "8.49.0",
+    "eslint-config-manzdev": "0.0.3",
+    "stylelint": "15.10.3",
     "stylelint-config-manzdev": "^0.0.11"
   }
 }
