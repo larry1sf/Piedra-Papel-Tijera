@@ -6,7 +6,7 @@
 
 - 🦄 **Desarrollador:** *Larry*
 - 🐇 **Link a red social:** *https://www.facebook.com/alarry.ceballos*
-- 🦾 **Perfil:** *Bajo *
+- 🦾 **Perfil:** *Bajo*
 - 💬 **Un comentario breve o frase ingeniosa**: *De tanto intentar se aprende.*
 
 ## Observaciones
