@@ -1,0 +1,23 @@
+{
+  "name": "manzdev-retos-template",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "rm -rf dist && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0",
+    "vite": "^4.4.9"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-manzdev": "^0.0.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-manzdev": "^0.0.11"
+  }
+}
