@@ -1,4 +1,5 @@
 /* eslint-disable semi */
+// anulando el toast por el momento.
 const Toast = document.getElementById("toast")
 Toast.className = "d-none"
 

@@ -14,6 +14,14 @@ body {
   background-repeat: no-repeat;
 }
 
+.top-20 {
+  top: 20%;
+}
+
+.bottom-20 {
+  bottom: 10% !important;
+}
+
 .rubik {
   font-family: " Rubik", sans-serif;
   font-optical-sizing: auto;
@@ -27,8 +35,8 @@ body {
   height: 100vh;
 }
 
-#izquierda div,
-#derecha div {
+#izquierda .bg-lados,
+#derecha .bg-lados {
   background: #5856bb52;
 }
 

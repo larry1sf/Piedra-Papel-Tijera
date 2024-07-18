@@ -39,8 +39,26 @@
 
 <body class="container-fluid g-0 ">
   <div id="conte" class=" g-0 col-12 row justify-content-center text-light">
-    <div class="col-12 d-none" id="izquierda">
-      <div style="width: 97%; height: 99%;" class="rounded">Izquierda</div>
+    <div class="col-12 d-none  g-0 " id="izquierda">
+      <section style="width: 97%; height: 99%;" class=" bg-lados rounded flex-column my-auto position-relative">
+        <div class=" position-relative top-20 w-100 vstack gap-5 ">
+          <img src="..." alt="Logo del jugador o ia " class="m-3">
+
+          <div class="d-flex justify-content-center  p-3">
+            <i>Vida 1</i><i>Vida 2</i><i>Vida 3</i>
+          </div>
+          <div class="d-flex justify-content-center  p-3">
+            <i>poder 1</i><i>poder 2</i><i>poder 3</i>
+          </div>
+
+
+        </div>
+        <div class="badge text-bg-dark p-3 m-1 position-absolute bottom-20">
+          <p class="text-wrap">seleciona tu ataque para eliminar vidas de la ia, ten encuenta que @l evalua tus
+            ataques
+          </p>
+        </div>
+      </section>
     </div>
 
     <section class="col-12 text-center mt-5" id="central">
@@ -50,7 +68,7 @@
         <p class="h3 rubik mt-5 pt-5">Selecciona un lado</p>
         <section class="col-12 pt-5 mt-5 hstack gap-3 justify-content-center">
           <button id="btn_izquierda" type="button"
-            class="col-auto  p-2 btn btn-primary rounded-pill focus-ring d-flex align-items-center justify-content-center"
+            class="col-3 col-lg-1  p-2 btn btn-primary rounded-pill focus-ring d-flex align-items-center justify-content-center"
             value="Izquierda">
             <svg viewBox="0 0 24 24" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg"
               transform="matrix(-1, 0, 0, 1, 0, 0)">
@@ -58,15 +76,12 @@
                 <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#4012e6"></path>
               </g>
             </svg>
-            <small class="rubik py-2 px-4">Izquierda</small>
 
           </button>
 
           <button id="btn_derecha" type="button"
-            class=" col-auto p-2  btn btn-primary rounded-pill focus-ring d-flex align-items-center justify-content-center"
+            class=" col-3 col-lg-1 p-2  btn btn-primary rounded-pill focus-ring d-flex align-items-center justify-content-center"
             value="Derecha">
-            <small class="rubik py-2 px-4">Derecha</small>
-
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
               <g>
                 <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#4012e6"></path>
@@ -74,23 +89,42 @@
             </svg>
           </button>
       </div>
+
+      <div id="toast" class="d-flex justify-content-center">
+        <section class="toast w-100 position-absolute" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="..." alt="..." class="rounded me-2" />
+            <strong class="me-auto">Informe De daño</strong>
+            <small>time de registro</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+          </div>
+          <strong class="toast-body">El jugador gano!</strong>
+        </section>
+      </div>
     </section>
 
-    <div id="toast" class="d-flex justify-content-center">
-      <section class="toast w-100 position-absolute" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <img src="..." alt="..." class="rounded me-2" />
-          <strong class="me-auto">Informe De daño</strong>
-          <small>time de registro</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
-        </div>
-        <div class="toast-body">El jugador gano!</div>
-      </section>
-    </div>
-    </section>
+
 
     <div class="col-12 d-none  g-0 " id="derecha">
-      <div style="width: 97%; height: 99%;" class="rounded">Derecha</div>
+      <section style="width: 97%; height: 99%;" class=" bg-lados rounded flex-column my-auto position-relative">
+        <div class=" position-relative top-20 w-100 vstack gap-5 ">
+          <img src="..." alt="Logo del jugador o ia " class="m-3">
+
+          <div class="d-flex justify-content-center  p-3">
+            <i>Vida 1</i><i>Vida 2</i><i>Vida 3</i>
+          </div>
+          <div class="d-flex justify-content-center  p-3">
+            <i>poder 1</i><i>poder 2</i><i>poder 3</i>
+          </div>
+
+
+        </div>
+        <div class="badge text-bg-dark p-3 m-1 position-absolute bottom-20">
+          <p class="text-wrap">seleciona tu ataque para eliminar vidas de la ia, ten encuenta que @l evalua tus
+            ataques
+          </p>
+        </div>
+      </section>
     </div>
   </div>
 </body>
