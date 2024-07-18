@@ -1,4 +1,7 @@
+/* stylelint-disable stylistic/no-missing-end-of-source-newline */
 /* stylelint-disable declaration-property-value-no-unknown */
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
 body {
   min-width: 300px;
   min-height: 100vh;
@@ -8,5 +11,28 @@ body {
       #6a68e4 70%,
       #4012e6
     );
+  background-repeat: no-repeat;
+}
+
+.rubik {
+  font-family: " Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#izquierda,
+#derecha {
+  background-image: linear-gradient(#532cdf 10%, #4012e6, #532cdf 40%);
+  height: 100vh;
+}
+
+#izquierda div,
+#derecha div {
+  background: #5856bb52;
+}
+
+.bg-img {
+  background-image: linear-gradient(#6a68e4 5%, #4012e666, #6a68e4 40%);
   background-repeat: no-repeat;
 }
