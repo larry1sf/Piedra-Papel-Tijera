@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/Piedra-Papel-Tijera/logo-88da457e.png"
+      type="image/x-icon"
+    />
+    <title>Piedra Papel o Tijera</title>
+    <meta
+      name="description"
+      content="Un mini juego de piedra papel o tijera para la gente de colombia que quiera distraerse un rato mirando que tan bien responde la ia contra ellos."
+    />
+    <!-- OPEN_GRAPH -->
+    <meta property="og:url" content="en espera" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Un juego para pasar el tiempo y competir vs iaL."
+    />
+    <meta
+      property="og:description"
+      content="Pagina con jun juego para competir con la ia creada por larry."
+    />
+    <meta property="og:image" content="../public/imgs/logo.png" />
+
+    <!-- enlaces -->
+    
+    
+    
+    
+    <script type="module" crossorigin src="/Piedra-Papel-Tijera/index-f990a7b1.js"></script>
+    <link rel="stylesheet" href="/Piedra-Papel-Tijera/index-74fe5110.css">
+  </head>
+
+  <body class="container-fluid">
+    <div
+      id="conte"
+      class="col-12 row justify-content-center align-items-center text-light"
+    >
+      <!-- <div class="col-12" id="izquierda">Izquierda</div> -->
+
+      <section class="col-12 text-center position-relative" id="central">
+        <div>
+          <h3 class="display-3 py-5 mt-5">Pieda Papel o Tijera</h3>
+          <p class="h3 mt-5 pt-5">Selecciona un lado</p>
+        </div>
+
+        <section class="col-12 p-2 mt-4 d-flex gap-5 justify-content-center">
+          <button
+            id="Input_izquierda"
+            type="button"
+            class="col-lg-4 btn btn-primary rounded-pill focus-ring d-flex align-items-center justify-content-center"
+            value="Izquierda"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="30"
+              height="30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              transform="matrix(-1, 0, 0, 1, 0, 0)"
+            >
+              <g>
+                <path
+                  d="M6 12H18M18 12L13 7M18 12L13 17"
+                  stroke="#4012e6"
+                ></path>
+              </g>
+            </svg>
+            Izquierda
+          </button>
+
+          <button
+            id="Input_derecha"
+            type="button"
+            class="col-lg-4 btn btn-primary rounded-pill focus-ring d-flex align-items-center justify-content-center"
+            value="Derecha"
+          >
+            Derecha
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="30"
+              height="30"
+            >
+              <g>
+                <path
+                  d="M6 12H18M18 12L13 7M18 12L13 17"
+                  stroke="#4012e6"
+                ></path>
+              </g>
+            </svg>
+          </button>
+        </section>
+
+        <div class="d-flex justify-content-center">
+          <section
+            class="toast w-100 position-absolute"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="toast-header">
+              <img src="..." alt="..." class="rounded me-2" />
+              <strong class="me-auto">Informe De daño</strong>
+              <small>time de registro</small>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="close"
+              ></button>
+            </div>
+            <div class="toast-body">El jugador gano!</div>
+          </section>
+        </div>
+      </section>
+
+      <!-- <div class="col-12" id="derecha">Derecha</div> -->
+    </div>
+  </body>
+</html>
