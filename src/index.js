@@ -22,7 +22,8 @@ function ajusteCentral() {
   Pselecion.className = "d-none"
 }
 
-const seleccionLado = (btn) => { btn.addEventListener("click", ajusteCentral) }
+const seleccionLado = (btn = []) => {
+  btn.forEach((e) => { e.addEventListener("click", ajusteCentral) })
+}
 
-seleccionLado(btnIzquierda)
-seleccionLado(btnDerecha)
+seleccionLado([btnIzquierda, btnDerecha])
