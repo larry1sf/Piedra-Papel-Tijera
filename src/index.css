@@ -1,1 +1,12 @@
-
+/* stylelint-disable declaration-property-value-no-unknown */
+body {
+  min-width: 300px;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(
+      #6a68e4 30%,
+      #6a68e4 70%,
+      #4012e6
+    );
+  background-repeat: no-repeat;
+}
