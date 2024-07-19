@@ -28,3 +28,7 @@ const seleccionLado = (btn = []) => {
 }
 
 seleccionLado([btnIzquierda, btnDerecha])
+
+const e = document.querySelectorAll("#poderes_j button")
+
+console.log(e)

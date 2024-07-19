@@ -44,3 +44,7 @@ body {
   background-image: linear-gradient(#6a68e4 5%, #4012e666, #6a68e4 40%);
   background-repeat: no-repeat;
 }
+
+#poderes img {
+  cursor: pointer;
+}
