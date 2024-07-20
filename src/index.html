@@ -106,7 +106,7 @@
           </button>
         </div>
 
-        <div class="my-bord bg-bord fs-7 fw-semibold rounded p-0 p-sm-1 p-lg-2 m-0 m-md-1">
+        <div id="aviso_ex" class="my-bord bg-bord fs-7 fw-semibold rounded p-0 p-sm-1 p-lg-2 m-0 m-md-1">
           <p class="text-wrap">seleciona tu ataque para eliminar vidas de la ia, ten encuenta que @l evalua tus
             ataques
           </p>
@@ -115,7 +115,7 @@
       </section>
     </div>
 
-    <section class="col-12 text-center mt-5" id="central">
+    <section id="central" class="col-12 text-center mt-5">
       <h3 class="display-3 rubik py-5 mt-5">Piedra Papel o Tijera</h3>
 
       <div id="seleccion">
@@ -143,24 +143,28 @@
                 fill="#ffffff"></path>
             </svg>
           </button>
+        </section>
       </div>
 
-      <div id="toast" class="d-flex justify-content-center">
-        <section class="toast w-100 position-absolute" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <img src="..." alt="..." class="rounded me-2" />
-            <strong class="me-auto">Informe De daño</strong>
-            <small>time de registro</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+      <div id="toast-conte" aria-live="polite" aria-atomic="true"
+        class="d-flex justify-content-center align-items-center w-100 ">
+        <div class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header p-1">
+            <img src="" alt="logo del atacante en accion" class="rounded me-2">
+            <strong class="me-auto">atacante en accion</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
-          <strong class="toast-body">El jugador gano!</strong>
-        </section>
+          <div class="toast-body">
+            ganador de la ronda: jugador1 <br>
+            datos:<span>📜✂</span>
+          </div>
+        </div>
       </div>
     </section>
 
 
 
-    <div class="d-none" id="derecha">
+    <div id="derecha" class="d-none">
       <section style="width: 95%; height: 98%;"
         class=" bg-lados rounded my-auto d-flex flex-column align-items-center justify-content-center">
         <img src="../public/imgs/logo.png" height="contain" width="50%" alt="Logo del jugador o ia"
@@ -229,7 +233,7 @@
           </button>
         </div>
 
-        <div class="my-bord bg-bord rounded fs-7 fw-semibold p-0 p-sm-1 p-lg-2 m-0 m-md-1 ">
+        <div id="aviso_j" class="my-bord bg-bord rounded fs-7 fw-semibold p-0 p-sm-1 p-lg-2 m-0 m-md-1 ">
           <p class="text-wrap">seleciona tu ataque para eliminar vidas de la ia, ten encuenta que @l evalua tus
             ataques
           </p>
