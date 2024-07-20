@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable semi */
 // anulando el toast por el momento.
 const Toast = document.getElementById("toast")
@@ -13,22 +14,30 @@ const Pselecion = document.getElementById("seleccion")
 const Pcentral = document.getElementById("central")
 
 const crearJugadores = (p = []) => {
-  p.forEach((e) => { e.className = "col-3 d-flex justify-content-center align-items-center" })
+  p.forEach(e => e.className = "col-3 d-flex justify-content-center align-items-center")
 }
 
-function ajusteCentral() {
+function ajustePage(x) {
   const classAsignar = "col-6 text-center mt-5 bg-img"
   Pcentral.className = classAsignar
-  crearJugadores([Pderecha, Pizquierda])
   Pselecion.className = "d-none"
+  crearJugadores([Pderecha, Pizquierda])
+
+  console.log([x][0].src = "../public/imgs/user-pc.png")
 }
 
-const seleccionLado = (btn = []) => {
-  btn.forEach((e) => { e.addEventListener("click", ajusteCentral) })
+const seleccionLado = (lisBtns = []) => {
+  lisBtns.forEach(() => {
+    btnIzquierda.addEventListener("click", () => {
+      const x = [Pderecha][0].children[0].children[0]
+      ajustePage(x)
+    })
+
+    btnDerecha.addEventListener("click", () => {
+      const x = [Pizquierda][0].children[0].children[0]
+      ajustePage(x)
+    })
+  })
 }
 
 seleccionLado([btnIzquierda, btnDerecha])
-
-const e = document.querySelectorAll("#poderes_j button")
-
-console.log(e)

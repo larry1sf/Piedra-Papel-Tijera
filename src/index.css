@@ -3,8 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
 body {
-  min-width: 300px;
-  min-height: 100vh;
+  min-width: 220px;
+  height: 786px;
   background-image:
     radial-gradient(
       #6a68e4 30%,
@@ -12,6 +12,10 @@ body {
       #4012e6
     );
   background-repeat: no-repeat;
+}
+
+#conte {
+  height: 100%;
 }
 
 .top-20 {
@@ -32,7 +36,6 @@ body {
 #izquierda,
 #derecha {
   background-image: linear-gradient(#532cdf 10%, #4012e6, #532cdf 40%);
-  height: 100vh;
 }
 
 #izquierda .bg-lados,
@@ -41,10 +44,52 @@ body {
 }
 
 .bg-img {
-  background-image: linear-gradient(#6a68e4 5%, #4012e666, #6a68e4 40%);
+  background-image: linear-gradient(#6a68e4 0%, #4012e666 30%, #6a68e4 100%);
   background-repeat: no-repeat;
 }
 
 #poderes img {
   cursor: pointer;
+}
+
+.bg-bord {
+  background-image: radial-gradient(circle 382px at 50% 50.2%, #6a68e4 0.1%, #4012e666 100.2%);
+}
+
+.bord-btn {
+  border: 2px solid #4012e68c;
+}
+
+.bg-bord-btn {
+  background: #714eec66;
+
+  &:hover {
+    background: #4012e68c;
+    box-shadow: 0 0 5px #4012e68c;
+    transition: all ease 0.1s;
+  }
+}
+
+.my-bord {
+  border: 2px solid #4012e6;
+  transition: all ease 0.1s;
+}
+
+.my-bord-logo {
+  border: 2px solid #4012e6;
+  box-shadow: inset 0 0 15px #fff, 0 0 5px #4012e6;
+  transition: all ease 0.1s;
+}
+
+.my-btn {
+  &:active {
+    border: 2px solid  #eee;
+    box-shadow: 0 0 3px inset #eee, 0 0 3px #eee;
+    transition: all ease 0.1s;
+  }
+}
+
+.fs-7 {
+  font-size: 0.75rem;
+  line-height: 1;
 }
