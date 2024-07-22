@@ -149,14 +149,15 @@
       <div id="toast-conte" aria-live="polite" aria-atomic="true"
         class="d-flex justify-content-center align-items-center w-100 ">
         <div class="toast " role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header p-1">
-            <img src="" alt="logo del atacante en accion" class="rounded me-2">
-            <strong class="me-auto">atacante en accion</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          <div class="toast-header p-1 position-relative">
+            <strong class="mx-auto">atacante en accion</strong>
+            <button type="button" class="btn-close position-absolute end-0 me-2" data-bs-dismiss="toast"
+              aria-label="Close"></button>
           </div>
           <div class="toast-body">
-            ganador de la ronda: jugador1 <br>
-            datos:<span>📜✂</span>
+            <p id="data"> datos:<span id="A-izquierda">📜</span> vs <span id="A-derecha">✂</span></p>
+            <p><span id="contador-i">0</span> <span id="avisos">avisos</span> <span id="contador-d">0</span></p>
+            <p id="ganadores" class=" invisible">ganador: jugador1</p>
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ const ajustePage = (x = HTMLElement) => {
   [x][0].src = "../public/imgs/user-pc.png"
 }
 
-const seleccionLado = (lisBtns = []) => {
+const seleccionLado = () => {
   const hacerInvisible = (el = "") => {
     const AtaquesPc = document.getElementById(`poderes_${el}`)
     const AvisoPc = document.getElementById(`aviso_${el}`)
@@ -44,20 +44,65 @@ const seleccionLado = (lisBtns = []) => {
 seleccionLado([btnIzquierda, btnDerecha])
 // logica del juego
 const alerts = (id = "") => {
-  const lis = document.querySelectorAll(`${id} button`)
-  lis.forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      //  alert(btn.title)
+  let cuentaD = 0; let cuentaI = 0; let contaEmpates = 0
 
+  const lisEnemi = new Set()
+  const avi = document.getElementById("avisos")
+  const lis = document.querySelectorAll(`${id} button`)
+
+  lis.forEach((btn) => {
+    // poderes del lenemigo
+    lisEnemi.add(btn.title)
+
+    btn.addEventListener("click", (event) => {
+      // modificar poder del enemigo cada seleccion de ataque del jugador.
+      const p = Math.floor(Math.random() * (2 - 0 + 1)) + 0
+      // modificar el toast cuando un jugador elije poder.
       const padreToast = document.getElementById("toast-conte")
       const toastHijo = [padreToast][0].children[0]
       toastHijo.className = "toast show bg-bord"
-      toastHijo.children[1].children[1].innerText = btn.title
-      toastHijo.children[0].children[0].src = "atacante de turno"
-      // usar liniea de abajo con condicional para eliminar el toast.
-      // setTimeout(() => { toastHijo.className = "toast bg-bord" }, 2500)
+      // eleciones de jugaores
+      const newL = [...lisEnemi]
+      const data = document.getElementById("data")
+      const ganadores = document.getElementById("ganadores")
+      const lugarD = document.getElementById("A-derecha")
+      const lugarI = document.getElementById("A-izquierda")
+      const cd = document.getElementById("contador-d")
+      const ci = document.getElementById("contador-i")
 
-      // console.log(toastHijo.children)
+      const verGanador = (v1, v2) => {
+        if (v1 === "Tijeras" & v2 === "Papel" || v1 === "Piedra" & v2 === "Tijeras" || v1 === "Papel" & v2 === "Piedra") {
+          if (cuentaD !== null) { cuentaD++ } cd.innerText = cuentaD
+        } else if (v1 === "Piedra" & v2 === "Papel" || v1 === "Tijeras" & v2 === "Piedra" || v1 === "Papel" & v2 === "Tijeras") {
+          if (cuentaI !== null) { cuentaI++ } ci.innerText = cuentaI
+        } else {
+          if (contaEmpates !== null) { contaEmpates++; avi.innerText = `empates: ${contaEmpates}` }
+        }
+      }
+      const terna = (p) => {
+        const x = p === 3 ? "el Jugador" : "la IA"
+        ganadores.innerText = `el ganador es ${x}`
+      }
+
+      if (id === "#poderes_j") {
+        lugarI.innerText = newL[p]
+        lugarD.innerText = btn.title
+        verGanador(btn.title, newL[p])
+        terna(cuentaD)
+      } else {
+        lugarI.innerText = btn.title
+        lugarD.innerText = newL[p]
+        verGanador(newL[p], btn.title)
+        terna(cuentaI)
+      }
+
+      if (cuentaD === 3 || cuentaI === 3) {
+        setTimeout(() => { data.className = avi.className = ci.className = cd.className = "invisible" }, 1500)
+        ganadores.className = "visible"
+        cuentaD = cuentaI = contaEmpates = null
+      }
+      // toastHijo.children[1].children[1].innerText = `{btn.title} ${newL[eleccionP - 1]}`
+      // toastHijo.children[0].children[0].src = "atacante de turno"
     })
   })
 }
