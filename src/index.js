@@ -54,6 +54,8 @@ const alerts = (id = "") => {
     // poderes del lenemigo
     lisEnemi.add(btn.title)
 
+
+
     btn.addEventListener("click", (event) => {
       // modificar poder del enemigo cada seleccion de ataque del jugador.
       const p = Math.floor(Math.random() * (2 - 0 + 1)) + 0
@@ -79,28 +81,33 @@ const alerts = (id = "") => {
           if (contaEmpates !== null) { contaEmpates++; avi.innerText = `empates: ${contaEmpates}` }
         }
       }
-      const terna = (p) => {
-        const x = p === 3 ? "el Jugador" : "la IA"
-        ganadores.innerText = `el ganador es ${x}`
-      }
-
+      // const terna = (p, p2) => {
+      //   let x
+      //   if (p === 3) { x = "el Jugador" } if (p2 === 3) { x = "la IA" }
+      //   ganadores.innerText = `el ganador es ${x}`
+      // }
+      const textGanador = "el ganador es el"
       if (id === "#poderes_j") {
         lugarI.innerText = newL[p]
         lugarD.innerText = btn.title
         verGanador(btn.title, newL[p])
-        terna(cuentaD)
+        if (cuentaD >= 3) { ganadores.innerText = `${textGanador} jugador` }
+        if (cuentaI >= 3) { ganadores.innerText = `${textGanador} enemigo` }
+        // terna(cuentaD, cuentaI)
       } else {
         lugarI.innerText = btn.title
         lugarD.innerText = newL[p]
         verGanador(newL[p], btn.title)
-        terna(cuentaI)
+        if (cuentaD >= 3) { ganadores.innerText = `${textGanador} enemigo` }
+        if (cuentaI >= 3) { ganadores.innerText = `${textGanador}jugador` }
+        // terna(cuentaI, cuentaD)
       }
-
       if (cuentaD === 3 || cuentaI === 3) {
         setTimeout(() => { data.className = avi.className = ci.className = cd.className = "invisible" }, 1500)
         ganadores.className = "visible"
         cuentaD = cuentaI = contaEmpates = null
       }
+
       // toastHijo.children[1].children[1].innerText = `{btn.title} ${newL[eleccionP - 1]}`
       // toastHijo.children[0].children[0].src = "atacante de turno"
     })
