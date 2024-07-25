@@ -5,6 +5,9 @@ const Pizquierda = document.getElementById("izquierda")
 const Pderecha = document.getElementById("derecha")
 const Pselecion = document.getElementById("seleccion")
 const Pcentral = document.getElementById("central")
+const avisoGanadores = document.getElementsByClassName("g-p")
+const aGanadores = [...avisoGanadores]
+aGanadores.forEach((e) => { e.className += " invisible" })
 
 const crearJugadores = (p = []) => {
   p.forEach((e) => { e.className = "col-3 d-flex justify-content-center align-items-center" })
@@ -29,33 +32,27 @@ const seleccionLado = () => {
     crearJugadores([Pderecha, Pizquierda])
     ajustePage(x)
   }
-
   btnDerecha.addEventListener("click", () => {
     hacerInvisible("ex")
     semiAjustePage(Pizquierda)
   })
-
   btnIzquierda.addEventListener("click", () => {
     hacerInvisible("j")
     semiAjustePage(Pderecha)
   })
 }
-
 seleccionLado([btnIzquierda, btnDerecha])
 // logica del juego
 const alerts = (id = "") => {
   let cuentaD = 0; let cuentaI = 0; let contaEmpates = 0
-
   const lisEnemi = new Set()
   const avi = document.getElementById("avisos")
   const lis = document.querySelectorAll(`${id} button`)
-
+  const disCorazonesD = document.querySelectorAll("#conte-corazones_j")
+  const disCorazonesI = document.querySelectorAll("#conte-corazones_ex")
   lis.forEach((btn) => {
     // poderes del lenemigo
     lisEnemi.add(btn.title)
-
-
-
     btn.addEventListener("click", (event) => {
       // modificar poder del enemigo cada seleccion de ataque del jugador.
       const p = Math.floor(Math.random() * (2 - 0 + 1)) + 0
@@ -74,42 +71,45 @@ const alerts = (id = "") => {
 
       const verGanador = (v1, v2) => {
         if (v1 === "Tijeras" & v2 === "Papel" || v1 === "Piedra" & v2 === "Tijeras" || v1 === "Papel" & v2 === "Piedra") {
-          if (cuentaD !== null) { cuentaD++ } cd.innerText = cuentaD
+          if (cuentaD !== null) { cuentaD++; disCorazonesI[0].children[0].remove() } cd.innerText = cuentaD
         } else if (v1 === "Piedra" & v2 === "Papel" || v1 === "Tijeras" & v2 === "Piedra" || v1 === "Papel" & v2 === "Tijeras") {
-          if (cuentaI !== null) { cuentaI++ } ci.innerText = cuentaI
+          if (cuentaI !== null) { cuentaI++; disCorazonesD[0].children[0].remove() } ci.innerText = cuentaI
         } else {
           if (contaEmpates !== null) { contaEmpates++; avi.innerText = `empates: ${contaEmpates}` }
         }
       }
-      // const terna = (p, p2) => {
-      //   let x
-      //   if (p === 3) { x = "el Jugador" } if (p2 === 3) { x = "la IA" }
-      //   ganadores.innerText = `el ganador es ${x}`
-      // }
-      const textGanador = "el ganador es el"
-      if (id === "#poderes_j") {
-        lugarI.innerText = newL[p]
-        lugarD.innerText = btn.title
-        verGanador(btn.title, newL[p])
-        if (cuentaD >= 3) { ganadores.innerText = `${textGanador} jugador` }
-        if (cuentaI >= 3) { ganadores.innerText = `${textGanador} enemigo` }
-        // terna(cuentaD, cuentaI)
-      } else {
-        lugarI.innerText = btn.title
-        lugarD.innerText = newL[p]
-        verGanador(newL[p], btn.title)
-        if (cuentaD >= 3) { ganadores.innerText = `${textGanador} enemigo` }
-        if (cuentaI >= 3) { ganadores.innerText = `${textGanador}jugador` }
-        // terna(cuentaI, cuentaD)
+      const dandoleLugar = (pos1, pos2) => {
+        lugarI.innerText = pos1
+        lugarD.innerText = pos2
       }
-      if (cuentaD === 3 || cuentaI === 3) {
-        setTimeout(() => { data.className = avi.className = ci.className = cd.className = "invisible" }, 1500)
-        ganadores.className = "visible"
-        cuentaD = cuentaI = contaEmpates = null
+      const veriLados = (li, ld, jg = "jugador", ene = "la IA") => {
+        const textGanador = "el ganador es "
+        if (li >= 3) { ganadores.innerText = `${textGanador} ${ene}` }
+        if (ld >= 3) { ganadores.innerText = `${textGanador} ${jg}` }
+      }
+      const quitConteCorazones = () => {
+        const darVisionAviso = (pos, pos2 = "Ganador") => {
+          aGanadores[pos].className += "s"; aGanadores[pos].children[0].innerText = pos2
+        }
+        if (cuentaI === 3) { disCorazonesD[0].className = "invisible"; darVisionAviso(0); darVisionAviso(1, "Perdedor") }
+        if (cuentaD === 3) { disCorazonesI[0].className = "invisible"; darVisionAviso(1); darVisionAviso(0, "Perdedor") }
+      }
+      const allandoGanador = () => {
+        quitConteCorazones()
+        if (cuentaD === 3 || cuentaI === 3) {
+          setTimeout(() => { data.className = avi.className = ci.className = cd.className = "invisible" }, 1500)
+          ganadores.className = "visible"
+          cuentaD = cuentaI = contaEmpates = null
+        }
       }
 
-      // toastHijo.children[1].children[1].innerText = `{btn.title} ${newL[eleccionP - 1]}`
-      // toastHijo.children[0].children[0].src = "atacante de turno"
+      if (id === "#poderes_j") {
+        dandoleLugar(newL[p], btn.title); verGanador(btn.title, newL[p]); veriLados(cuentaI, cuentaD)
+      } else {
+        dandoleLugar(btn.title, newL[p]); verGanador(newL[p], btn.title); veriLados(cuentaI, cuentaD, "la IA", "el jugador")
+      }
+      allandoGanador()
+      alerts("#joder")
     })
   })
 }

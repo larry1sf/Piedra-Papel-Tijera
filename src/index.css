@@ -1,6 +1,9 @@
 /* stylelint-disable stylistic/no-missing-end-of-source-newline */
 /* stylelint-disable declaration-property-value-no-unknown */
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@font-face {
+  font-family: " ppt";
+  src: url("/public/fonts/Grandstander-Light\ -\ copia.ttf");
+}
 
 body {
   min-width: 220px;
@@ -12,6 +15,11 @@ body {
       #4012e6
     );
   background-repeat: no-repeat;
+}
+
+.font {
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: " ppt";
 }
 
 #conte {
