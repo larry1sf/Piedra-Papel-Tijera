@@ -8,6 +8,9 @@
 
   <!-- icon -->
   <link rel="shortcut icon" href="../public/imgs/game-developer.png" type="image/x-icon" />
+
+  <!-- importants -->
+  <meta name="robots" content="index,follow">
   <meta mame="theme-color" content="#08f">
   <!-- principal -->
   <title>Piedra Papel o Tijera</title>
@@ -25,7 +28,7 @@
   <meta property="og:image:alt" content="logo de mi pagina web">
 
 
-  <!-- seo -->
+  <!-- seo principal page. -->
   <link rel="canonical" href="https://larry1sf.github.io/Piedra-Papel-Tijera/">
 
 
@@ -39,6 +42,7 @@
 
 <body class="container-fluid g-0 ">
   <div id="conte" class=" g-0 col-12 row justify-content-center text-light">
+    <img id="img-ene" class="d-none" src="../public/imgs/user-pc.png" alt="fotodel enemigo">
 
     <div id="izquierda" class="d-none">
       <section style="width: 95%; height: 98%;"
@@ -48,8 +52,10 @@
 
         <div id="conte-corazones_ex"
           class="hstack gap-4 justify-content-center my-bord bg-bord rounded p-2 m-0 m-md-1 m-lg-2 mb-5">
-          <i title="vidas"><svg fill="#ffffff" width="100%" height="3rem" viewBox="0 0 512 512" version="1.1"
-              xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+          <i title="vidas">
+            <svg fill="#ffffff" width="100%" height="3rem" viewBox="0 0 512 512" version="1.1" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
               <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
                 stroke-width="9.216"></g>
@@ -61,9 +67,10 @@
                 </g>
                 <g id="Layer_1"></g>
               </g>
-            </svg></i><i title="vidas"><svg fill="#ffffff" width="100%" height="3rem" viewBox="0 0 512 512"
-              version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink" transform="rotate(0)">
+            </svg></i>
+          <i title="vidas">
+            <svg fill="#ffffff" width="100%" height="3rem" viewBox="0 0 512 512" version="1.1" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" transform="rotate(0)">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
               <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
                 stroke-width="9.216"></g>
@@ -75,9 +82,10 @@
                 </g>
                 <g id="Layer_1"></g>
               </g>
-            </svg></i><i title="vidas"><svg fill="#ffffff" width="100%" height="3rem" viewBox="0 0 512 512"
-              version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink" transform="rotate(0)">
+            </svg></i>
+          <i title="vidas">
+            <svg fill="#ffffff" width="100%" height="3rem" viewBox="0 0 512 512" version="1.1" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" transform="rotate(0)">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
               <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
                 stroke-width="9.216"></g>
@@ -106,12 +114,13 @@
           </button>
         </div>
 
-        <div id="aviso_ex" class="my-bord bg-bord fs-7 fw-semibold rounded p-0 p-sm-1 p-lg-2 m-0 m-md-1">
+        <div id="aviso_ex" class="curs my-bord bg-bord fs-7 fw-semibold rounded p-0 p-sm-1 p-lg-2 m-0 m-md-1">
 
           <p class="text-wrap">seleciona tu ataque para eliminar vidas de la ia, ten encuenta que @l evalua tus
             ataques
           </p>
         </div>
+
         <div class="my-bord bg-bord fs-7 fw-semibold rounded p-0 p-sm-1 p-lg-2 m-0 m-md-1 g-p">
           <p class="mb-0">ganador o perdedir aviso</p>
         </div>
@@ -119,10 +128,11 @@
     </div>
 
     <section id="central" class="col-12 text-center mt-5">
-      <h1 class="display-3 py-5 mt-5 font">Piedra Papel o Tijera</h1>
+      <h1 class="display-3 py-5 mt-5 font ">Piedra Papel o Tijera</h1>
 
       <div id="seleccion">
-        <p class="h3 mt-5 pt-5 font">Selecciona un lado</p>
+        <h2 class="h3 mt-5 pt-5 font ">Selecciona un lado</h2>
+
         <section class="col-12 pt-5 mt-5 hstack gap-3 justify-content-center">
           <button id="btn_izquierda" type="button" title="boton izquierda"
             class="col-3 col-lg-1 p-2 bord-btn bg-bord-btn rounded focus-ring d-flex align-items-center justify-content-center"
@@ -163,6 +173,12 @@
             <p id="ganadores" class=" invisible">ganador: jugador1</p>
           </div>
         </div>
+      </div>
+
+      <div>
+        <button id="btn-re-game" type="button" title="Volver a jugar" aria-label="Voler a jugar"
+          class="bord-btn bg-bord-btn text-light curs d-none">Volver a
+          jugar</button>
       </div>
     </section>
 
@@ -237,7 +253,7 @@
           </button>
         </div>
 
-        <div id="aviso_j" class="my-bord bg-bord rounded fs-7 fw-semibold p-0 p-sm-1 p-lg-2 m-0 m-md-1 ">
+        <div id="aviso_j" class="curs my-bord bg-bord rounded fs-7 fw-semibold p-0 p-sm-1 p-lg-2 m-0 m-md-1 ">
           <p class="text-wrap">seleciona tu ataque para eliminar vidas de la ia, ten encuenta que @l evalua tus
             ataques
           </p>

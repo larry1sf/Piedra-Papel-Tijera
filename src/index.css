@@ -1,8 +1,20 @@
+/* stylelint-disable selector-id-pattern */
 /* stylelint-disable stylistic/no-missing-end-of-source-newline */
 /* stylelint-disable declaration-property-value-no-unknown */
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+
 @font-face {
   font-family: " ppt";
-  src: url("/public/fonts/Grandstander-Light\ -\ copia.ttf");
+  src:
+    url("../public/fonts/Grandstander-ExtraBold.woff2") format(woff2),
+    url("../public/fonts/Grandstander-Light\ -\ copia.ttf") format(ttf);
+}
+
+@font-face {
+  font-family: " ppt2";
+  src:
+    url("../public/fonts/Grandstander-Light.woff2") format(woff2),
+    url("../public/fonts/Grandstander-ExtraBold.woff2") format(woff2);
 }
 
 body {
@@ -18,8 +30,11 @@ body {
 }
 
 .font {
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: " ppt";
+}
+
+.curs {
+  font-family: " ppt2";
 }
 
 #conte {
@@ -34,13 +49,6 @@ body {
   bottom: 10% !important;
 }
 
-.rubik {
-  font-family: " Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
 #izquierda,
 #derecha {
   background-image: linear-gradient(#532cdf 10%, #4012e6, #532cdf 40%);
@@ -52,16 +60,31 @@ body {
 }
 
 .bg-img {
-  background-image: linear-gradient(#6a68e4 0%, #4012e666 30%, #6a68e4 100%);
+  background-image: linear-gradient(#6a68e4 0%, #4012e698 30%, #6a68e4 100%);
   background-repeat: no-repeat;
 }
 
-#poderes img {
+#poderes_j,
+#poderes_ex img {
   cursor: pointer;
 }
 
 .bg-bord {
   background-image: radial-gradient(circle 382px at 50% 50.2%, #6a68e4 0.1%, #4012e666 100.2%);
+}
+
+#poderes_j .bg-bord,
+#poderes_ex .bg-bord {
+  &:hover {
+    background-image: radial-gradient(circle 382px at 50% 50.2%, #6a68e4 0.1%, #3700ff 100.2%);
+    background-repeat: no-repeat;
+  }
+}
+
+.bg-bord-in {
+  height: 4.25rem;
+  background: transparent !important;
+  border: 2px solid transparent !important;
 }
 
 .bord-btn {
