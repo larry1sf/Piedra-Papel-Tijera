@@ -82,7 +82,7 @@ body {
 }
 
 .bg-bord-in {
-  height: 4.25rem;
+  /* height: 4.25rem; */
   background: transparent !important;
   border: 2px solid transparent !important;
 }
@@ -123,4 +123,25 @@ body {
 .fs-7 {
   font-size: 0.75rem;
   line-height: 1;
+}
+
+.ver {
+  font-size: 1.5rem;
+}
+
+.no-ver {
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: vision 2s both;
+}
+
+@keyframes vision {
+  0% {
+    font-size: 1.5rem;
+    opacity: 1;
+  }
+
+  100% {
+    font-size: 1.5rem;
+    opacity: 0;
+  }
 }

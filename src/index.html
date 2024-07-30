@@ -41,7 +41,7 @@
 </head>
 
 <body class="container-fluid g-0 ">
-  <div id="conte" class=" g-0 col-12 row justify-content-center text-light">
+  <div id="conte" class=" g-0 row justify-content-center text-light">
     <img id="img-ene" class="d-none" src="../public/imgs/user-pc.png" alt="fotodel enemigo">
 
     <div id="izquierda" class="d-none">
@@ -167,10 +167,19 @@
             <button type="button" class="btn-close position-absolute end-0 me-2" data-bs-dismiss="toast"
               aria-label="Close"></button>
           </div>
-          <div class="toast-body">
-            <p id="data"> datos:<span id="A-izquierda">📜</span> vs <span id="A-derecha">✂</span></p>
-            <p><span id="contador-i">0</span> <span id="avisos">avisos</span> <span id="contador-d">0</span></p>
-            <p id="ganadores" class=" invisible">ganador: jugador1</p>
+          <div class="toast-body row">
+            <p id="data" class="col-12 fs-3">
+              <span id="A-izquierda">📜</span>
+              vs
+              <span id="A-derecha">✂</span>
+            </p>
+
+            <p class="d-flex justify-content-between">
+              <span id="contador-i" class=" ver col-3 ">0</span>
+              <span id="avisos" class=" ver col-5 justify-content-center d-flex align-items-center">avisos</span>
+              <span id="contador-d" class=" ver col-3">0</span>
+            </p>
+            <p id="ganadores" class=" invisible ">ganador: jugador1</p>
           </div>
         </div>
       </div>
