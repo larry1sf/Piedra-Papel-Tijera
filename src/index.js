@@ -56,7 +56,7 @@ const alerts = (id = "") => {
     const quitConteCorazones = () => {
       const darVisionAviso = (pos, pos2 = "Ganador") => {
         let clrm = aGanadores[pos].className; clrm = clrm.replace(" invisible", " visible")
-        aGanadores[pos].className = clrm; aGanadores[pos].children[0].innerText = pos2
+        aGanadores[pos].className = `${clrm} parpadeo`; aGanadores[pos].children[0].innerText = pos2
       }
       const verQuitCorazones = (lado, posA, pos1, pos2) => {
         if (lado === 3) { posA[0].className += " bg-bord-in"; darVisionAviso(pos1); darVisionAviso(pos2, "Perdedor") }
@@ -67,7 +67,9 @@ const alerts = (id = "") => {
     const allandoGanador = () => {
       quitConteCorazones()
       if (cuentaD === 3 || cuentaI === 3) {
-        cuentaD = cuentaI = contaEmpates = null; reinicio.className = "d-block"; ganadores.className = "visible fs-5    "
+        cuentaD = cuentaI = contaEmpates = null
+        let mostraR = reinicio.className; mostraR = mostraR.replace(" d-none", " d-block")
+        reinicio.className = mostraR; ganadores.className = "visible fs-5 fw-medium"
         const susClases = [ci, cd, avi]
         setTimeout(() => { susClases.forEach((e) => { let x = e.className; x = x.replace(" ver", " no-ver"); e.className = x }) }, 1000)
       }
@@ -99,7 +101,7 @@ const alerts = (id = "") => {
         lugarI.innerText = pos1; lugarD.innerText = pos2
       }
 
-      const veriLados = (li, ld, jg = "jugador", ene = "la IA") => {
+      const veriLados = (li, ld, jg = "el jugador", ene = "la IA") => {
         const textGanador = "el ganador es "
         if (li >= 3) { ganadores.innerText = `${textGanador} ${ene} ` } if (ld >= 3) { ganadores.innerText = `${textGanador} ${jg} ` }
       }

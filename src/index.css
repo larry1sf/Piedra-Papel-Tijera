@@ -82,7 +82,7 @@ body {
 }
 
 .bg-bord-in {
-  /* height: 4.25rem; */
+  height: 4.25rem;
   background: transparent !important;
   border: 2px solid transparent !important;
 }
@@ -127,21 +127,30 @@ body {
 
 .ver {
   font-size: 1.5rem;
+  font-weight: bolder;
 }
 
 .no-ver {
+  font-weight: bolder;
+  font-size: 1.5rem;
+
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-  animation: vision 2s both;
+  animation: vision 1s ease-in-out both;
+}
+
+.my-bord.parpadeo {
+  background-image: radial-gradient(#f3f0f0c7 15%, #f1eeee);
+  color: #4012e6;
+  animation: vision 1s ease-in-out 3;
 }
 
 @keyframes vision {
   0% {
-    font-size: 1.5rem;
-    opacity: 1;
+    opacity: 100%;
   }
 
   100% {
-    font-size: 1.5rem;
-    opacity: 0;
+    opacity: 0%;
   }
 }
+
