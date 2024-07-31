@@ -1,6 +1,6 @@
 # Larry-Pierda,Papel,Tijera
 
-🌍 **URL del reto**: *#*
+🌍 **URL del reto**: *[pagina del juego](https://larry1sf.github.io/Piedra-Papel-Tijera/)*
 
 ## Datos
 
@@ -11,8 +11,8 @@
 
 ## Observaciones
 
-*Es necesario organizar los elementos para tener una buena ux/ui ya que esta trabajo sera con bootstrap y js puro.*
+*Pagina para entretenerse jugando contra un bot con ia que analiza y juega en contra de ti, echa responsive para poder jugar desde la comodidad de tu cama en el mobil*
 
 ---
-> Puedes encontrar otros proyectos en en: <br>▶ *https://github.com/larry1sf/*
+> Puedes encontrar otros proyectos en mi perfil de github : <br>▶ *[larry1s](https://github.com/larry1sf/)*
 

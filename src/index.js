@@ -19,8 +19,11 @@ const crearJugadores = (p = []) => {
 }
 const ajustePage = (x = HTMLElement | "posicion imagen") => {
   Pcentral.className = "col-6 text-center mt-5 bg-img"
-  Pselecion.className = "d-none";
-  [x][0].src = "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png"
+  Pselecion.className = "d-none"
+  const img = [x][0]
+  img.src = "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png"
+  img.ariaLabel = img.title = "Ia"
+  // console.log([x][0].ariaLabel)
 }
 const seleccionLado = () => {
   const hacerInvisible = (el = "") => {
@@ -34,16 +37,26 @@ const seleccionLado = () => {
     crearJugadores([Pderecha, Pizquierda])
     ajustePage(x)
   }
+
+  const sacarImg = (lado = HTMLElement) => {
+    const x = [lado][0].children[0].children[0]
+    const img = [x][0]
+    img.ariaLabel = img.title = "Jugador"
+  }
   btnDerecha.addEventListener("click", () => {
     hacerInvisible("ex")
     semiAjustePage(Pizquierda)
+    sacarImg(Pderecha)
   })
   btnIzquierda.addEventListener("click", () => {
     hacerInvisible("j")
     semiAjustePage(Pderecha)
+    sacarImg(Pizquierda)
   })
 }
+
 seleccionLado([btnIzquierda, btnDerecha])
+
 let cuentaD = 0; let cuentaI = 0; let contaEmpates = 0
 const disCorazonesD = document.querySelectorAll("#conte-corazones_j")
 const disCorazonesI = document.querySelectorAll("#conte-corazones_ex")
@@ -115,6 +128,7 @@ const alerts = (id = "") => {
     })
   })
 }
+
 reinicio.addEventListener("click", () => {
   ci.innerText = cd.innerText = cuentaD = cuentaI = contaEmpates = 0
   avi.innerText = ""
@@ -146,5 +160,6 @@ reinicio.addEventListener("click", () => {
     if (i.children.length < 3) { let y = i.className; y = y.replace(" bg-bord-in", " bg-bord"); i.className = y; i.innerHTML = corazones }
   })
 })
+
 alerts("#poderes_j")
 alerts("#poderes_ex")
