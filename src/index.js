@@ -7,7 +7,9 @@ const Pselecion = document.getElementById("seleccion")
 const Pcentral = document.getElementById("central")
 const avisoGanadores = document.getElementsByClassName("g-p")
 const aGanadores = [...avisoGanadores]
-aGanadores.forEach((e) => { e.className += " invisible" })
+aGanadores.forEach((e) => {
+  e.className += " invisible"
+})
 const reinicio = document.getElementById("btn-re-game")
 const ganadores = document.getElementById("ganadores")
 const cd = document.getElementById("contador-d")
@@ -15,13 +17,16 @@ const ci = document.getElementById("contador-i")
 const avi = document.getElementById("avisos")
 // const data = document.getElementById("data")
 const crearJugadores = (p = []) => {
-  p.forEach((e) => { e.className = "col-3 d-flex justify-content-center align-items-center" })
+  p.forEach((e) => {
+    e.className = "col-3 d-flex justify-content-center align-items-center"
+  })
 }
 const ajustePage = (x = HTMLElement | "posicion imagen") => {
   Pcentral.className = "col-6 text-center mt-5 bg-img"
   Pselecion.className = "d-none"
-  const img = [x][0]
-  img.src = "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png"
+  const img = [x][0].children[0]
+  img.src =
+    "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png"
   img.ariaLabel = img.title = "Ia"
   // console.log([x][0].ariaLabel)
 }
@@ -57,7 +62,9 @@ const seleccionLado = () => {
 
 seleccionLado([btnIzquierda, btnDerecha])
 
-let cuentaD = 0; let cuentaI = 0; let contaEmpates = 0
+let cuentaD = 0
+let cuentaI = 0
+let contaEmpates = 0
 const disCorazonesD = document.querySelectorAll("#conte-corazones_j")
 const disCorazonesI = document.querySelectorAll("#conte-corazones_ex")
 const alerts = (id = "") => {
@@ -68,11 +75,17 @@ const alerts = (id = "") => {
     lisEnemi.add(btn.title)
     const quitConteCorazones = () => {
       const darVisionAviso = (pos, pos2 = "Ganador") => {
-        let clrm = aGanadores[pos].className; clrm = clrm.replace(" invisible", " visible")
-        aGanadores[pos].className = `${clrm} parpadeo`; aGanadores[pos].children[0].innerText = pos2
+        let clrm = aGanadores[pos].className
+        clrm = clrm.replace(" invisible", " visible")
+        aGanadores[pos].className = `${clrm} parpadeo`
+        aGanadores[pos].children[0].innerText = pos2
       }
       const verQuitCorazones = (lado, posA, pos1, pos2) => {
-        if (lado === 3) { posA[0].className += " bg-bord-in"; darVisionAviso(pos1); darVisionAviso(pos2, "Perdedor") }
+        if (lado === 3) {
+          posA[0].className += " bg-bord-in"
+          darVisionAviso(pos1)
+          darVisionAviso(pos2, "Perdedor")
+        }
       }
       verQuitCorazones(cuentaI, disCorazonesD, 0, 1)
       verQuitCorazones(cuentaD, disCorazonesI, 1, 0)
@@ -81,10 +94,16 @@ const alerts = (id = "") => {
       quitConteCorazones()
       if (cuentaD === 3 || cuentaI === 3) {
         cuentaD = cuentaI = contaEmpates = null
-        let mostraR = reinicio.className; mostraR = mostraR.replace(" d-none", " d-block")
-        reinicio.className = mostraR; ganadores.className = "visible fs-5 fw-medium"
+        let mostraR = reinicio.className
+        mostraR = mostraR.replace(" d-none", " d-block")
+        reinicio.className = mostraR
+        ganadores.className = "visible fs-5 fw-medium"
         const susClases = [ci, cd, avi]
-        setTimeout(() => { susClases.forEach((e) => { let x = e.className; x = x.replace(" ver", " no-ver"); e.className = x }) }, 1000)
+        susClases.forEach((e) => {
+          let x = e.className
+          x = x.replace(" ver", " no-ver")
+          e.className = x
+        })
       }
     }
 
@@ -101,30 +120,54 @@ const alerts = (id = "") => {
       const lugarI = document.getElementById("A-izquierda")
       const verGanador = (v1, v2) => {
         if (cuentaD !== null || cuentaI !== null) {
-          if (v1 === "Tijeras" & v2 === "Papel" || v1 === "Piedra" & v2 === "Tijeras" || v1 === "Papel" & v2 === "Piedra") {
-            cuentaD++; cd.innerText = cuentaD; disCorazonesI[0].children[0].remove()
-          } else if (v1 === "Piedra" & v2 === "Papel" || v1 === "Tijeras" & v2 === "Piedra" || v1 === "Papel" & v2 === "Tijeras") {
-            cuentaI++; ci.innerText = cuentaI; disCorazonesD[0].children[0].remove()
+          if (
+            (v1 === "Tijeras") & (v2 === "Papel") ||
+            (v1 === "Piedra") & (v2 === "Tijeras") ||
+            (v1 === "Papel") & (v2 === "Piedra")
+          ) {
+            cuentaD++
+            cd.innerText = cuentaD
+            disCorazonesI[0].children[0].remove()
+          } else if (
+            (v1 === "Piedra") & (v2 === "Papel") ||
+            (v1 === "Tijeras") & (v2 === "Piedra") ||
+            (v1 === "Papel") & (v2 === "Tijeras")
+          ) {
+            cuentaI++
+            ci.innerText = cuentaI
+            disCorazonesD[0].children[0].remove()
           } else {
-            contaEmpates++; avi.innerText = `empates: ${contaEmpates}`
+            contaEmpates++
+            avi.innerText = `empates: ${contaEmpates}`
           }
         }
       }
       const dandoleLugar = (pos1, pos2) => {
-        lugarI.innerText = pos1; lugarD.innerText = pos2
+        lugarI.innerText = pos1
+        lugarD.innerText = pos2
       }
 
       const veriLados = (li, ld, jg = "el jugador", ene = "la IA") => {
         const textGanador = "el ganador es "
-        if (li >= 3) { ganadores.innerText = `${textGanador} ${ene} ` } if (ld >= 3) { ganadores.innerText = `${textGanador} ${jg} ` }
+        if (li >= 3) {
+          ganadores.innerText = `${textGanador} ${ene} `
+        }
+        if (ld >= 3) {
+          ganadores.innerText = `${textGanador} ${jg} `
+        }
       }
 
       if (id === "#poderes_j") {
-        dandoleLugar(newL[p], btn.title); verGanador(btn.title, newL[p]); veriLados(cuentaI, cuentaD)
+        dandoleLugar(newL[p], btn.title)
+        verGanador(btn.title, newL[p])
+        veriLados(cuentaI, cuentaD)
         // histor[cuentaD] = [newL[p], btn.title]
       } else {
-        dandoleLugar(btn.title, newL[p]); verGanador(newL[p], btn.title); veriLados(cuentaD, cuentaI)
-      } allandoGanador()
+        dandoleLugar(btn.title, newL[p])
+        verGanador(newL[p], btn.title)
+        veriLados(cuentaD, cuentaI)
+      }
+      allandoGanador()
     })
   })
 }
@@ -134,9 +177,17 @@ reinicio.addEventListener("click", () => {
   avi.innerText = ""
   reinicio.className = "d-none"
   const newVisibility = [avi, ci, cd]
-  newVisibility.forEach((e) => { let x = e.className; x = x.replace(" no-ver", " ver"); e.className = x })
+  newVisibility.forEach((e) => {
+    let x = e.className
+    x = x.replace(" no-ver", " ver")
+    e.className = x
+  })
   ganadores.className = "invisible fs-5"
-  aGanadores.forEach((e) => { let x = e.className; x = x.replace(" visible", " invisible"); e.className = x })
+  aGanadores.forEach((e) => {
+    let x = e.className
+    x = x.replace(" visible", " invisible")
+    e.className = x
+  })
   const er = [...disCorazonesD, ...disCorazonesI]
   er.forEach((i) => {
     const corazones = `
@@ -157,7 +208,12 @@ reinicio.addEventListener("click", () => {
             </svg></i>
         `.repeat(3)
     // const corazones = corazon.repeat(3)
-    if (i.children.length < 3) { let y = i.className; y = y.replace(" bg-bord-in", " bg-bord"); i.className = y; i.innerHTML = corazones }
+    if (i.children.length < 3) {
+      let y = i.className
+      y = y.replace(" bg-bord-in", " bg-bord")
+      i.className = y
+      i.innerHTML = corazones
+    }
   })
 })
 
