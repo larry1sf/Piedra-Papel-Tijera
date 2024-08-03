@@ -15,7 +15,7 @@ const ganadores = document.getElementById("ganadores")
 const cd = document.getElementById("contador-d")
 const ci = document.getElementById("contador-i")
 const avi = document.getElementById("avisos")
-// const data = document.getElementById("data")
+const data = document.getElementById("data")
 const crearJugadores = (p = []) => {
   p.forEach((e) => {
     e.className = "col-3 d-flex justify-content-center align-items-center"
@@ -27,8 +27,7 @@ const ajustePage = (x = HTMLElement | "posicion imagen") => {
   const img = [x][0].children[0]
   img.src =
     "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png"
-  img.ariaLabel = img.title = "Ia"
-  // console.log([x][0].ariaLabel)
+  img.ariaLabel = img.title = "foto de la Ia"
 }
 const seleccionLado = () => {
   const hacerInvisible = (el = "") => {
@@ -109,7 +108,10 @@ const alerts = (id = "") => {
 
     btn.addEventListener("click", (event) => {
       // modificar poder del enemigo cada seleccion de ataque del jugador.
-      const p = Math.floor(Math.random() * (2 - 0 + 1)) + 0
+      const p =
+        cuentaD === null || cuentaI === null
+          ? null
+          : Math.floor(Math.random() * (2 - 0 + 1)) + 0
       // modificar el toast cuando un jugador elije poder.
       const padreToast = document.getElementById("toast-conte")
       const toastHijo = [padreToast][0].children[0]
@@ -140,6 +142,8 @@ const alerts = (id = "") => {
             contaEmpates++
             avi.innerText = `empates: ${contaEmpates}`
           }
+        } else {
+          data.innerHTML = `<strong> Debes volver a jugar!</strong>`
         }
       }
       const dandoleLugar = (pos1, pos2) => {
