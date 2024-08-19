@@ -1,10 +1,11 @@
-/* eslint-disable semi */
 const btnDerecha = document.getElementById("btn_derecha")
 const btnIzquierda = document.getElementById("btn_izquierda")
 const Pizquierda = document.getElementById("izquierda")
 const Pderecha = document.getElementById("derecha")
 const Pselecion = document.getElementById("seleccion")
 const Pcentral = document.getElementById("central")
+const aDerecha = document.getElementById("A-derecha")
+const aIzquierda = document.getElementById("A-izquierda")
 const avisoGanadores = document.getElementsByClassName("g-p")
 const aGanadores = [...avisoGanadores]
 aGanadores.forEach((e) => {
@@ -16,6 +17,10 @@ const cd = document.getElementById("contador-d")
 const ci = document.getElementById("contador-i")
 const avi = document.getElementById("avisos")
 const data = document.getElementById("data")
+const lugarD = document.getElementById("A-derecha")
+const lugarI = document.getElementById("A-izquierda")
+const separador = document.getElementById("Separador")
+
 const crearJugadores = (p = []) => {
   p.forEach((e) => {
     e.className = "col-3 d-flex justify-content-center align-items-center"
@@ -60,18 +65,28 @@ const seleccionLado = () => {
 }
 
 seleccionLado([btnIzquierda, btnDerecha])
-
+let identificador
+let val = []
 let cuentaD = 0
 let cuentaI = 0
 let contaEmpates = 0
 const disCorazonesD = document.querySelectorAll("#conte-corazones_j")
 const disCorazonesI = document.querySelectorAll("#conte-corazones_ex")
+// poderes del lenemigo
+let newL
+const lisEnemi = new Set()
+let p = Boolean
+let poderMio = ""
+separador.innerText = " vs "
+// modificar el toast cuando un jugador elije poder.
+const padreToast = document.getElementById("toast-conte")
+const toastHijo = [padreToast][0].children[0]
+
 const alerts = (id = "") => {
-  // poderes del lenemigo
-  const lisEnemi = new Set()
   const lis = document.querySelectorAll(`${id} button`)
   lis.forEach((btn) => {
     lisEnemi.add(btn.title)
+    newL = [...lisEnemi]
     const quitConteCorazones = () => {
       const darVisionAviso = (pos, pos2 = "Ganador") => {
         let clrm = aGanadores[pos].className
@@ -79,6 +94,7 @@ const alerts = (id = "") => {
         aGanadores[pos].className = `${clrm} parpadeo`
         aGanadores[pos].children[0].innerText = pos2
       }
+
       const verQuitCorazones = (lado, posA, pos1, pos2) => {
         if (lado === 3) {
           posA[0].className += " bg-bord-in"
@@ -86,16 +102,19 @@ const alerts = (id = "") => {
           darVisionAviso(pos2, "Perdedor")
         }
       }
+
       verQuitCorazones(cuentaI, disCorazonesD, 0, 1)
       verQuitCorazones(cuentaD, disCorazonesI, 1, 0)
     }
+
     const allandoGanador = () => {
       quitConteCorazones()
       if (cuentaD === 3 || cuentaI === 3) {
-        cuentaD = cuentaI = contaEmpates = null
         let mostraR = reinicio.className
         mostraR = mostraR.replace(" d-none", " d-block")
         reinicio.className = mostraR
+        console.log(cuentaD, cuentaI)
+        console.log(cuentaD, cuentaI)
         ganadores.className = "visible fs-5 fw-medium"
         const susClases = [ci, cd, avi]
         susClases.forEach((e) => {
@@ -103,23 +122,20 @@ const alerts = (id = "") => {
           x = x.replace(" ver", " no-ver")
           e.className = x
         })
+        cuentaD = cuentaI = contaEmpates = null
       }
     }
 
     btn.addEventListener("click", (event) => {
-      // modificar poder del enemigo cada seleccion de ataque del jugador.
-      const p =
+      // modifica poder del enemigo cada seleccion de ataque del jugador.
+      poderMio = btn.title
+      p =
         cuentaD === null || cuentaI === null
-          ? null
+          ? Math.floor(Math.random() * (2 - 0 + 1)) + 0
           : Math.floor(Math.random() * (2 - 0 + 1)) + 0
-      // modificar el toast cuando un jugador elije poder.
-      const padreToast = document.getElementById("toast-conte")
-      const toastHijo = [padreToast][0].children[0]
       toastHijo.className = "toast show bg-bord"
+
       // eleciones de jugaores
-      const newL = [...lisEnemi]
-      const lugarD = document.getElementById("A-derecha")
-      const lugarI = document.getElementById("A-izquierda")
       const verGanador = (v1, v2) => {
         if (cuentaD !== null || cuentaI !== null) {
           if (
@@ -143,14 +159,21 @@ const alerts = (id = "") => {
             avi.innerText = `empates: ${contaEmpates}`
           }
         } else {
-          data.innerHTML = `<strong> Debes volver a jugar!</strong>`
+          lugarD.innerText = ""
+          lugarI.innerText = ""
+          separador.innerText = " Volver a Jugar! "
         }
       }
-      const dandoleLugar = (pos1, pos2) => {
-        lugarI.innerText = pos1
-        lugarD.innerText = pos2
+      // pone posicion debido a eleccion.
+      const dandoleLugar = (pos1 = 0, pos2 = 0) => {
+        try {
+          lugarI.innerText = pos1
+          lugarD.innerText = pos2
+        } catch {
+          console.log("error manejado", TypeError())
+        }
       }
-
+      // inner para avisar ganador y perdedor
       const veriLados = (li, ld, jg = "el jugador", ene = "la IA") => {
         const textGanador = "el ganador es "
         if (li >= 3) {
@@ -162,24 +185,36 @@ const alerts = (id = "") => {
       }
 
       if (id === "#poderes_j") {
-        dandoleLugar(newL[p], btn.title)
-        verGanador(btn.title, newL[p])
+        dandoleLugar(newL[p], poderMio)
+        verGanador(poderMio, newL[p])
         veriLados(cuentaI, cuentaD)
         // histor[cuentaD] = [newL[p], btn.title]
       } else {
-        dandoleLugar(btn.title, newL[p])
-        verGanador(newL[p], btn.title)
+        dandoleLugar(poderMio, newL[p])
+        verGanador(newL[p], poderMio)
         veriLados(cuentaD, cuentaI)
       }
       allandoGanador()
     })
   })
+  identificador = id
 }
 
 reinicio.addEventListener("click", () => {
+  ;[aDerecha, aIzquierda].forEach((e) => {
+    let x = e.className
+    x.replace(" invisible", " visible")
+    e.className = x
+  })
+  const DarLugaresNuevamente =
+    identificador === "#poderes_j"
+      ? ((lugarD.innerText = ""), (lugarI.innerText = ""))
+      : ((lugarD.innerText = ""), (lugarI.innerText = ""))
+
   ci.innerText = cd.innerText = cuentaD = cuentaI = contaEmpates = 0
   avi.innerText = ""
-  reinicio.className = "d-none"
+  separador.innerText = " vs "
+  reinicio.className = " d-none"
   const newVisibility = [avi, ci, cd]
   newVisibility.forEach((e) => {
     let x = e.className
