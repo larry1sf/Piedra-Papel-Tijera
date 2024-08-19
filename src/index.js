@@ -175,7 +175,7 @@ const alerts = (id = "") => {
         }
       }
       // inner para avisar ganador y perdedor
-      const veriLados = (li, ld, jg = "el jugador", ene = "la IA") => {
+      const veriLados = (li, ld, jg = "el jugador", ene = "la IA ") => {
         const textGanador = "el ganador es "
         if (li >= 3) {
           ganadores.innerText = `${textGanador} ${ene} `
