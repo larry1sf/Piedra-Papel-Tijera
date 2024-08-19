@@ -202,6 +202,11 @@ const alerts = (id = "") => {
 }
 
 reinicio.addEventListener("click", () => {
+  aGanadores.forEach((e) => {
+    let x = e.className
+    x = x.replace(" visible parpadeo", " invisible noparpadeo")
+    e.className = x
+  })
   ;[aDerecha, aIzquierda].forEach((e) => {
     let x = e.className
     x.replace(" invisible", " visible")
@@ -216,16 +221,11 @@ reinicio.addEventListener("click", () => {
   avi.innerText = ""
   separador.innerText = " vs "
   reinicio.className = " d-none"
+  ganadores.className = "invisible fs-5"
   const newVisibility = [avi, ci, cd]
   newVisibility.forEach((e) => {
     let x = e.className
     x = x.replace(" no-ver", " ver")
-    e.className = x
-  })
-  ganadores.className = "invisible fs-5"
-  aGanadores.forEach((e) => {
-    let x = e.className
-    x = x.replace(" visible parpadeo", " invisible noparpadeo")
     e.className = x
   })
   const er = [...disCorazonesD, ...disCorazonesI]
