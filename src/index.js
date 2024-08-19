@@ -9,7 +9,7 @@ const aIzquierda = document.getElementById("A-izquierda")
 const avisoGanadores = document.getElementsByClassName("g-p")
 const aGanadores = [...avisoGanadores]
 aGanadores.forEach((e) => {
-  e.className += " invisible"
+  e.className += " invisible noparpadeo"
 })
 const reinicio = document.getElementById("btn-re-game")
 const ganadores = document.getElementById("ganadores")
@@ -70,6 +70,7 @@ let val = []
 let cuentaD = 0
 let cuentaI = 0
 let contaEmpates = 0
+// let animacionParpadeo = ""
 const disCorazonesD = document.querySelectorAll("#conte-corazones_j")
 const disCorazonesI = document.querySelectorAll("#conte-corazones_ex")
 // poderes del lenemigo
@@ -90,8 +91,8 @@ const alerts = (id = "") => {
     const quitConteCorazones = () => {
       const darVisionAviso = (pos, pos2 = "Ganador") => {
         let clrm = aGanadores[pos].className
-        clrm = clrm.replace(" invisible", " visible")
-        aGanadores[pos].className = `${clrm} parpadeo`
+        clrm = clrm.replace(" invisible noparpadeo", " visible parpadeo")
+        aGanadores[pos].className = `${clrm}`
         aGanadores[pos].children[0].innerText = pos2
       }
 
@@ -224,7 +225,7 @@ reinicio.addEventListener("click", () => {
   ganadores.className = "invisible fs-5"
   aGanadores.forEach((e) => {
     let x = e.className
-    x = x.replace(" visible", " invisible")
+    x = x.replace(" visible parpadeo", " invisible noparpadeo")
     e.className = x
   })
   const er = [...disCorazonesD, ...disCorazonesI]
