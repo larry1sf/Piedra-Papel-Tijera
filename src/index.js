@@ -220,7 +220,9 @@ reinicio.addEventListener("click", () => {
   ci.innerText = cd.innerText = cuentaD = cuentaI = contaEmpates = 0
   avi.innerText = ""
   separador.innerText = " vs "
-  reinicio.className = " d-none"
+  let rX = reinicio.className
+  rX = rX.replace("d-block", "d-none")
+  reinicio.className = rX
   ganadores.className = "invisible fs-5"
   const newVisibility = [avi, ci, cd]
   newVisibility.forEach((e) => {
