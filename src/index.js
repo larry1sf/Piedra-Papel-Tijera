@@ -30,7 +30,10 @@ const ajustePage = (x = HTMLElement | "posicion imagen") => {
   Pcentral.className = "col-6 text-center mt-5 bg-img"
   Pselecion.className = "d-none"
   const img = [x][0].children[0]
-  img.src = "../public/imgs/user-pc.png"
+  const miniif = x
+    ? (img.src =
+        "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png")
+    : (img.src = "../public/imgs/user-pc.png")
   img.ariaLabel = img.title = "foto de la Ia"
 }
 const seleccionLado = () => {
