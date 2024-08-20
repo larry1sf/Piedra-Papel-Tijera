@@ -30,8 +30,7 @@ const ajustePage = (x = HTMLElement | "posicion imagen") => {
   Pcentral.className = "col-6 text-center mt-5 bg-img"
   Pselecion.className = "d-none"
   const img = [x][0].children[0]
-  img.src =
-    "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png"
+  img.src = "../public/imgs/user-pc.png"
   img.ariaLabel = img.title = "foto de la Ia"
 }
 const seleccionLado = () => {
@@ -73,12 +72,14 @@ let contaEmpates = 0
 // let animacionParpadeo = ""
 const disCorazonesD = document.querySelectorAll("#conte-corazones_j")
 const disCorazonesI = document.querySelectorAll("#conte-corazones_ex")
-// poderes del lenemigo
-let newL
+// poderes del lenemigo y mios
 const lisEnemi = new Set()
+let newL
 let p = Boolean
+let poderEnemi = ""
 let poderMio = ""
 separador.innerText = " vs "
+const historial = []
 // modificar el toast cuando un jugador elije poder.
 const padreToast = document.getElementById("toast-conte")
 const toastHijo = [padreToast][0].children[0]
@@ -88,6 +89,7 @@ const alerts = (id = "") => {
   lis.forEach((btn) => {
     lisEnemi.add(btn.title)
     newL = [...lisEnemi]
+
     const quitConteCorazones = () => {
       const darVisionAviso = (pos, pos2 = "Ganador") => {
         let clrm = aGanadores[pos].className
@@ -114,8 +116,6 @@ const alerts = (id = "") => {
         let mostraR = reinicio.className
         mostraR = mostraR.replace(" d-none", " d-block")
         reinicio.className = mostraR
-        console.log(cuentaD, cuentaI)
-        console.log(cuentaD, cuentaI)
         ganadores.className = "visible fs-5 fw-medium"
         const susClases = [ci, cd, avi]
         susClases.forEach((e) => {
@@ -129,12 +129,14 @@ const alerts = (id = "") => {
 
     btn.addEventListener("click", (event) => {
       // modifica poder del enemigo cada seleccion de ataque del jugador.
-      poderMio = btn.title
       p =
         cuentaD === null || cuentaI === null
           ? Math.floor(Math.random() * (2 - 0 + 1)) + 0
-          : Math.floor(Math.random() * (2 - 0 + 1)) + 0
+          : Math.floor(Math.random() * (2 - 0) + 1) + 0
+      poderMio = btn.title
+      poderEnemi = newL[p]
       toastHijo.className = "toast show bg-bord"
+      console.log(poderMio, poderEnemi)
 
       // eleciones de jugaores
       const verGanador = (v1, v2) => {
@@ -186,13 +188,13 @@ const alerts = (id = "") => {
       }
 
       if (id === "#poderes_j") {
-        dandoleLugar(newL[p], poderMio)
-        verGanador(poderMio, newL[p])
+        dandoleLugar(poderEnemi, poderMio)
+        verGanador(poderMio, poderEnemi)
         veriLados(cuentaI, cuentaD)
         // histor[cuentaD] = [newL[p], btn.title]
       } else {
-        dandoleLugar(poderMio, newL[p])
-        verGanador(newL[p], poderMio)
+        dandoleLugar(poderMio, poderEnemi)
+        verGanador(poderEnemi, poderMio)
         veriLados(cuentaD, cuentaI)
       }
       allandoGanador()
