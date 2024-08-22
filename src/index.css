@@ -161,7 +161,7 @@ body {
 }
 
 .aviso-zoom {
-  animation: Zoom 145ms both;
+  animation: Zoom 150ms both;
 }
 @keyframes vision {
   0% {
@@ -177,7 +177,11 @@ body {
   0% {
   }
 
+  50% {
+    font-size: calc(1.3rem + 0.6vw);
+    /* color: black; */
+  }
   100% {
-    font-size: xx-large;
+    font-size: calc(1.275rem + 0.3vw);
   }
 }
