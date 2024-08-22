@@ -51,18 +51,19 @@
     
     
     
-    <script type="module" crossorigin src="/Piedra-Papel-Tijera/index-ac4562cb.js"></script>
-    <link rel="stylesheet" href="/Piedra-Papel-Tijera/index-a3484535.css">
+    <script type="module" crossorigin src="/Piedra-Papel-Tijera/index-db472daf.js"></script>
+    <link rel="stylesheet" href="/Piedra-Papel-Tijera/index-41c2bfab.css">
   </head>
 
   <body class="container-fluid g-0">
     <div id="conte" class="g-0 row justify-content-center text-light">
-      <img
+      <!-- imagen de recopilacion. -->
+      <!-- <img
         id="img-ene"
         class="d-none"
-        src="/Piedra-Papel-Tijera/user-pc-0edf34d2.png"
+        src="../public/imgs/user-pc.png"
         alt="foto del enemigo"
-      />
+      /> -->
 
       <div id="izquierda" class="d-none">
         <section
@@ -228,9 +229,9 @@
           <!-- texto de informacion añadida. -->
           <div
             id="aviso_ex"
-            class="curs my-bord bg-bord fs-6 fw-semibold rounded p-0 p-sm-1 p-md-2 p-xl-3 m-0 m-sm-1 m-md-2 m-lg-3"
+            class="my-bord bg-bord fs-6 fw-semibold rounded p-0 p-sm-1 p-md-2 p-xl-3 m-0 m-sm-1 m-md-2 m-lg-3"
           >
-            <p class="text-truncate text-wrap">
+            <p class="text-truncate text-wrap font">
               seleciona tu ataque para eliminar vidas de la ia, ten encuenta que
               @l evalua tus ataques
             </p>
@@ -255,7 +256,7 @@
         >
           Piedra Papel o Tijera
         </h1>
-
+        <!-- parte de seleccion (principal por el momento) -->
         <div id="seleccion">
           <h2
             class="h3 mt-5 pt-5 font"
@@ -264,7 +265,7 @@
           >
             Selecciona un lado
           </h2>
-
+          <!-- botones de la  seleccion  -->
           <section class="col-12 pt-5 mt-5 hstack gap-5 justify-content-center">
             <button
               id="btn_izquierda"
@@ -313,7 +314,7 @@
             </button>
           </section>
         </div>
-
+        <!-- toast central del marcador. -->
         <div
           tabindex="4"
           id="toast-conte"
@@ -356,16 +357,16 @@
             </div>
           </div>
         </div>
-
+        <!-- boton de volver a jugar -->
         <div class="row justify-content-center my-2 my-md-5 mx-1 mx-md-5 g-0">
           <button
             id="btn-re-game"
             type="button"
             title="Volver a jugar"
             aria-label="Voler a jugar"
-            class="bord-btn bg-bord-btn rounded text-light curs d-none w-50"
+            class="bord-btn bg-bord-btn rounded d-none w-50"
           >
-            Volver a jugar
+            <h3 class="text-light font-bold">Volver a jugar</h3>
           </button>
         </div>
       </section>
@@ -534,9 +535,9 @@
           <!-- texto de informacion añadida. -->
           <div
             id="aviso_j"
-            class="curs my-bord bg-bord rounded fs-6 fw-semibold p-0 p-sm-1 p-md-2 p-xl-3 p-lg-2 m-0 m-sm-1 m-md-2 m-lg-3"
+            class="font-bold my-bord bg-bord rounded fs-6 fw-semibold p-0 p-sm-1 p-md-2 p-xl-3 p-lg-2 m-0 m-sm-1 m-md-2 m-lg-3"
           >
-            <p class="text-wrap text-truncate">
+            <p class="text-truncate text-wrap font">
               seleciona tu ataque para eliminar vidas de la ia, ten encuenta que
               @l evalua tus ataques
             </p>
