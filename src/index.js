@@ -168,7 +168,7 @@ const alerts = (id = "") => {
         } else {
           lugarD.innerText = ""
           lugarI.innerText = ""
-          separador.innerText = " ¡Volver a Jugar! "
+          separador.innerText = " ¡Debes Volver a Jugar! "
           let xSeparador = separador.className
           xSeparador = xSeparador.replace("no-aviso-zoom", "aviso-zoom")
           separador.classList = xSeparador
