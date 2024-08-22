@@ -139,7 +139,7 @@ const alerts = (id = "") => {
           : Math.floor(Math.random() * (2 - 0) + 1) + 0
       poderMio = btn.title
       poderEnemi = newL[p]
-      toastHijo.className = "toast show bg-bord"
+      toastHijo.className = "toast bg-bord show"
       console.log(poderMio, poderEnemi)
 
       // eleciones de jugaores
@@ -174,7 +174,7 @@ const alerts = (id = "") => {
           separador.classList = xSeparador
           setTimeout(() => {
             separador.className = "no-aviso-zoom"
-          }, 350)
+          }, 150)
         }
       }
       // pone posicion debido a eleccion.
@@ -214,6 +214,7 @@ const alerts = (id = "") => {
 }
 
 reinicio.addEventListener("click", () => {
+  toastHijo.className = "toast bg-bord"
   aGanadores.forEach((e) => {
     let x = e.className
     x = x.replace(" visible parpadeo", " invisible noparpadeo")

@@ -161,7 +161,7 @@ body {
 }
 
 .aviso-zoom {
-  animation: Zoom 345ms both;
+  animation: Zoom 145ms both;
 }
 @keyframes vision {
   0% {
