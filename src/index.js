@@ -30,10 +30,10 @@ const ajustePage = (x = HTMLElement | "posicion imagen") => {
   Pcentral.className = "col-6 text-center mt-5 bg-img"
   Pselecion.className = "d-none"
   const img = [x][0].children[0]
-  const miniif = x
-    ? (img.src =
+  ;[x][0].baseURI === "http://127.0.0.1:3000/src/index.html"
+    ? (img.src = "../public/imgs/user-pc.png")
+    : (img.src =
         "https://larry1sf.github.io/Piedra-Papel-Tijera/user-pc-0edf34d2.png")
-    : (img.src = "../public/imgs/user-pc.png")
   img.ariaLabel = img.title = "foto de la Ia"
 }
 const seleccionLado = () => {
@@ -126,6 +126,7 @@ const alerts = (id = "") => {
           x = x.replace(" ver", " no-ver")
           e.className = x
         })
+
         cuentaD = cuentaI = contaEmpates = null
       }
     }
@@ -167,7 +168,13 @@ const alerts = (id = "") => {
         } else {
           lugarD.innerText = ""
           lugarI.innerText = ""
-          separador.innerText = " Volver a Jugar! "
+          separador.innerText = " ¡Volver a Jugar! "
+          let xSeparador = separador.className
+          xSeparador = xSeparador.replace("no-aviso-zoom", "aviso-zoom")
+          separador.classList = xSeparador
+          setTimeout(() => {
+            separador.className = "no-aviso-zoom"
+          }, 350)
         }
       }
       // pone posicion debido a eleccion.

@@ -156,6 +156,13 @@ body {
   animation: vision 1s ease-in-out 3;
 }
 
+#data {
+  height: 35px;
+}
+
+.aviso-zoom {
+  animation: Zoom 345ms both;
+}
 @keyframes vision {
   0% {
     opacity: 100%;
@@ -163,5 +170,14 @@ body {
 
   100% {
     opacity: 0%;
+  }
+}
+
+@keyframes Zoom {
+  0% {
+  }
+
+  100% {
+    font-size: xx-large;
   }
 }
