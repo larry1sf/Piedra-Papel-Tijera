@@ -24,6 +24,7 @@ const separador = document.getElementById("Separador")
 const crearJugadores = (p = []) => {
   p.forEach((e) => {
     e.className = "col-3 d-flex justify-content-center align-items-center"
+    // const x = [e.children[0].children][0]
   })
 }
 const ajustePage = (x = HTMLElement | "posicion imagen") => {
@@ -66,7 +67,7 @@ const seleccionLado = () => {
   })
 }
 
-seleccionLado([btnIzquierda, btnDerecha])
+seleccionLado()
 let identificador
 let val = []
 let cuentaD = 0

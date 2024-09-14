@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+  <head
+    prefix="name_space: https://raw.githubusercontent.com/larry1sf/Piedra-Papel-Tijera/main/public/imgs/logo.png"
+  >
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D159RVZDB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D159RVZDB2');
+</script>
     <!-- icon -->
     <link
       rel="shortcut icon"
@@ -19,31 +31,37 @@
     <title>Piedra Papel o Tijera</title>
     <meta
       name="description"
-      content="Un mini juego de piedra papel o tijera para la gente de colombia que quiera distraerse un rato mirando que tan bien responde la ia contra ellos."
+      content="Un mini juego de piedra papel o tijera para la gente de que quiera distraerse un rato mirando que tan bien responde la ia contra ellos."
     />
-
-    <!-- OPEN_GRAPH -->
-    <meta
-      property="og:url"
-      content="https://larry1sf.github.io/Piedra-Papel-Tijera/"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Juega comtra la ia." />
-    <meta
-      property="og:description"
-      content="Pagina con jun juego para competir con la ia creada por larry."
-    />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/larry1sf/Piedra-Papel-Tijera/main/public/imgs/logo.png"
-    />
-    <meta property="og:image:alt" content="logo de mi pagina web" />
-
     <!-- seo principal page. -->
     <link
       rel="canonical"
       href="https://larry1sf.github.io/Piedra-Papel-Tijera/"
     />
+
+    <!-- OPEN_GRAPH -->
+    <meta
+      property="og:title"
+      content="Juego de piedra papel o tijera para poner a prueba la Ia."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://larry1sf.github.io/Piedra-Papel-Tijera/"
+    />
+    <meta
+      property="og:description"
+      content="Pagina web para para competir con la ia creada por larry."
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/larry1sf/Piedra-Papel-Tijera/main/public/imgs/logo.png"
+    />
+    <meta
+      property="og:img:secure_url"
+      content="https://raw.githubusercontent.com/larry1sf/Piedra-Papel-Tijera/main/public/imgs/logo.png"
+    />
+    <meta property="og:image:alt" content="logo de mi pagina web" />
 
     <!-- enlaces -->
 
@@ -56,18 +74,20 @@
       type="module"
       src="../node_modules/bootstrap/dist/js/bootstrap.min.js"
     ></script>
-    <link rel="stylesheet" href="./index.css" />
+    <script type="module" src="./boton.js"></script>
+    <!-- <link rel="stylesheet" href="./index.css" /> -->
   </head>
 
   <body class="container-fluid g-0">
     <div id="conte" class="g-0 row justify-content-center text-light">
       <!-- imagen de recopilacion. -->
-      <!-- <img
+      <img
+        title="usuario_enemigo"
         id="img-ene"
         class="d-none"
         src="../public/imgs/user-pc.png"
         alt="foto del enemigo"
-      /> -->
+      />
 
       <div id="izquierda" class="d-none">
         <section
@@ -75,8 +95,11 @@
           class="bg-lados rounded my-auto d-flex flex-column align-items-center justify-content-center"
         >
           <!-- img o logo -->
-          <div class="mx-auto w-50 rounded-pill my-bord-logo p-3 mb-5 z">
+          <div
+            class="mx-auto w-50 rounded-pill my-bord-logo p-3 mb-5 z animation-start"
+          >
             <img
+              title="usuario_logo"
               src="../public/imgs/logo.png"
               tabindex="0"
               height="contain"
@@ -89,7 +112,7 @@
           <div
             id="conte-corazones_ex"
             role="banner"
-            class="hstack gap-4 justify-content-center my-bord bg-bord rounded p-2 m-0 m-md-1 m-lg-2 mb-5"
+            class="hstack gap-4 justify-content-center my-bord bg-bord rounded p-2 m-0 m-md-1 m-lg-2 mb-5 animation-start"
           >
             <i title="vidas">
               <svg
@@ -183,7 +206,7 @@
           </div>
           <!-- botones de ataque -->
           <div
-            class="hstack justify-content-center align-items-center gap-1 gap-md-2 gap-lg-4 p-2 mb-3"
+            class="hstack justify-content-center align-items-center gap-1 gap-md-2 gap-lg-4 p-2 mb-3 animation-start"
             id="poderes_ex"
             tabindex="2"
           >
@@ -195,6 +218,7 @@
               class="rounded my-bord bg-bord my-btn"
             >
               <img
+                title="piedra"
                 src="../public/svgs/fist.svg"
                 height="80%"
                 width="80%"
@@ -209,6 +233,7 @@
               class="rounded my-bord bg-bord my-btn"
             >
               <img
+                title="papel"
                 src="../public/svgs/hand.svg"
                 height="80%"
                 width="80%"
@@ -223,6 +248,7 @@
               class="rounded my-bord bg-bord my-btn"
             >
               <img
+                title="piedra"
                 src="../public/svgs/crossing-fingers.svg"
                 height="80%"
                 width="80%"
@@ -233,9 +259,9 @@
           <!-- texto de informacion añadida. -->
           <div
             id="aviso_ex"
-            class="my-bord bg-bord fs-6 fw-semibold rounded p-0 p-sm-1 p-md-2 p-xl-3 m-0 m-sm-1 m-md-2 m-lg-3"
+            class="my-bord bg-bord fs-6 rounded p-0 p-sm-1 p-md-2 p-xl-3 m-0 m-sm-1 m-md-2 m-lg-3 animation-start"
           >
-            <p class="text-truncate text-wrap font">
+            <p class="text-truncate text-wrap fw-lighter font">
               seleciona tu ataque para eliminar vidas de la ia, ten encuenta que
               @l evalua tus ataques
             </p>
@@ -243,81 +269,23 @@
           <!-- aviso de ganadores -->
           <div
             tabindex="3"
-            class="my-bord bg-bord fs-6 fw-semibold rounded p-0 p-sm-1 p-lg-2 m-0 mt-5 m-md-1 mt-md-5 mt-lg-5 g-p"
+            class="my-bord bg-bord rounded p-0 p-sm-1 p-lg-2 m-0 mt-5 m-md-1 mt-md-5 mt-lg-5 g-p animation-start"
           >
-            <p class="mb-0 px-0 px-md-2 px-lg-3 py-1">
+            <p class="fs-6 font mb-0 px-0 px-md-2 px-lg-3 py-1">
               ganador o perdedir aviso
             </p>
           </div>
         </section>
       </div>
 
-      <section id="central" class="col-12 text-center my-md-5">
+      <section id="central" class="col-12 text-center my-0 position-relative">
+        <!-- titulo -->
         <h1
-          class="display-3 py-5 px-3 font"
-          title="Piedra Papel o Tijera"
+          class="display-3 py-5 px-3 font-bold animation-start"
           aria-label="Piedra Papel o Tijera"
         >
           Piedra Papel o Tijera
         </h1>
-        <!-- parte de seleccion (principal por el momento) -->
-        <div id="seleccion">
-          <h2
-            class="h3 mt-5 pt-5 font"
-            title="Selecciona un lado"
-            aria-label="Se debe seleccionar un lado"
-          >
-            Selecciona un lado
-          </h2>
-          <!-- botones de la  seleccion  -->
-          <section class="col-12 pt-5 mt-5 hstack gap-5 justify-content-center">
-            <button
-              id="btn_izquierda"
-              type="button"
-              title="boton de la izquierda"
-              class="col-3 col-lg-1 p-2 bord-btn bg-bord-btn rounded-pill focus-ring d-flex align-items-center justify-content-center"
-              value="Izquierda"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                width="30"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#ffffff"
-                stroke-width="0.72"
-              >
-                <path
-                  d="M16.1795 3.26875C15.7889 2.87823 15.1558 2.87823 14.7652 3.26875L8.12078 9.91322C6.94952 11.0845 6.94916 12.9833 8.11996 14.155L14.6903 20.7304C15.0808 21.121 15.714 21.121 16.1045 20.7304C16.495 20.3399 16.495 19.7067 16.1045 19.3162L9.53246 12.7442C9.14194 12.3536 9.14194 11.7205 9.53246 11.33L16.1795 4.68297C16.57 4.29244 16.57 3.65928 16.1795 3.26875Z"
-                  fill="#ffffff"
-                ></path>
-              </svg>
-            </button>
-
-            <button
-              id="btn_derecha"
-              type="button"
-              title="boton de la derecha"
-              class="col-3 col-lg-1 p-2 bord-btn bg-bord-btn rounded-pill focus-ring d-flex align-items-center justify-content-center"
-              value="Derecha"
-              aria-label="boton de la derecha"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                width="30"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#ffffff"
-                stroke-width="0.72"
-                transform="matrix(-1, 0, 0, 1, 0, 0)"
-              >
-                <path
-                  d="M16.1795 3.26875C15.7889 2.87823 15.1558 2.87823 14.7652 3.26875L8.12078 9.91322C6.94952 11.0845 6.94916 12.9833 8.11996 14.155L14.6903 20.7304C15.0808 21.121 15.714 21.121 16.1045 20.7304C16.495 20.3399 16.495 19.7067 16.1045 19.3162L9.53246 12.7442C9.14194 12.3536 9.14194 11.7205 9.53246 11.33L16.1795 4.68297C16.57 4.29244 16.57 3.65928 16.1795 3.26875Z"
-                  fill="#ffffff"
-                ></path>
-              </svg>
-            </button>
-          </section>
-        </div>
         <!-- toast central del marcador. -->
         <div
           tabindex="4"
@@ -362,16 +330,479 @@
           </div>
         </div>
         <!-- boton de volver a jugar -->
-        <div class="row justify-content-center my-2 my-md-5 mx-1 mx-md-5 g-0">
+        <div class="row justify-content-center g-0">
           <button
             id="btn-re-game"
             type="button"
             title="Volver a jugar"
             aria-label="Voler a jugar"
-            class="bord-btn bg-bord-btn rounded d-none w-50"
+            class="my-2 my-md-5 mx-1 mx-md-5 bord-btn bg-bord-btn rounded d-none w-50"
           >
-            <h3 class="text-light font-bold">Volver a jugar</h3>
+            <h3 class="text-light font-bold mb-0 p-md-2 p-1">Volver a jugar</h3>
           </button>
+        </div>
+        <!-- historial -->
+        <div class="d-none row g-0 justify-content-center">
+          <!-- boton historial -->
+          <button
+            class="col-md-1 col-2 rounded-pill btn btn-light bg-bord-btn"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#exampleCollapse"
+            aria-expanded="false"
+            aria-controls="exampleCollapse"
+            title="historial"
+            aria-label="historial"
+            id="svg-history"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M19.6873 14.2222C19.8909 13.5167 20 12.7711 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C14.3413 20 16.4476 18.9943 17.9106 17.3912M19.6873 14.2222L19 13M19.6873 14.2222L20.75 13.25M9 12L11 14L15 10"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+          </button>
+          <!-- parte que colapsa del histrial -->
+          <div class="collapse" id="exampleCollapse">
+            <div class="card card-body col-6 mx-auto bg-bord">
+              <h4>historial</h4>
+              <div class="hstack">
+                <div id="H-izquierdo">
+                  <p>
+                    historial de la parte izquierda quien quiera que sea el
+                    jugador
+                  </p>
+                </div>
+                <div id="H-derecho">
+                  <p>
+                    historial de la parte derecha quien quiera que sea el
+                    jugador
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- bloque de imagenes -->
+        <div class="bloque hstack justify-content-center gap-3 animation-start">
+          <svg
+            class="animation-start"
+            id="rock"
+            width="150px"
+            height="150px"
+            viewBox="0 0 400 400"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M152.163 332.967C155.064 310.893 152.265 287.939 156.462 265.996C157.067 262.831 161.284 243.493 159.839 240.615C158.228 237.404 154.743 234.517 152.777 231.44C142.788 215.807 115.101 174.923 111.018 158.659C110.257 155.625 133.846 122.091 136.503 119.822C140.304 116.578 149.993 98.8479 153.698 98.1101C161.793 96.4976 192.428 109.203 195.764 115.846C198.794 121.883 202.575 133.453 199.756 140.005C195.462 149.983 168.276 150.003 159.532 148.262"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M159.418 95.2555C160.797 90.467 163.345 86.1861 165.561 81.7592C167.682 77.5224 170.868 74.8204 174.469 71.9436C176.9 70.0009 179.311 67.8387 182.148 66.4222C205.486 54.7689 217.686 71.1245 204.263 92.1881C203.486 93.4078 199.794 102.004 198.427 102.004C196.53 102.004 204.309 90.1206 205.185 89.1207C225.005 66.5004 252.009 89.0063 240.508 114.273C233.817 128.972 220.248 146.625 207.335 156.297C205.261 157.85 201.729 156.623 199.656 155.069"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M248.972 104.649C253.487 103.328 258.419 103.8 262.786 105.269C280.122 111.098 271.105 138.227 264.014 149.554C256.616 161.369 244.178 173.206 231.473 178.974C226.093 181.417 207.91 173.866 213.668 169.993"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M276.353 127.492C281.047 128.762 285.389 132.995 287.797 137.283C289.384 140.108 288.797 143.409 289.034 146.462C291.216 174.517 280.634 186.765 255.066 192.44"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M280.324 187.718C280.399 193.645 281.924 204.558 280.324 210.174C275.768 226.156 271.169 239.184 253.28 244.065C242.247 247.075 229.741 244.675 218.465 244.675"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M246.524 246.762C247.175 276.981 242.713 307.872 249.164 337.69"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              opacity="0.503384"
+              d="M149.973 161.312C168.199 151.595 194.278 159.378 207.975 174.453C214.141 181.24 217.503 194.765 219.39 203.182C220.16 206.613 223.484 213.909 221.242 217.241"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <svg
+            class="animation-start"
+            id="paper"
+            width="150px"
+            height="150px"
+            viewBox="0 -4.5 409 409"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.502139"
+              d="M77.8672 190.415C91.6209 190.415 115.44 184.607 124.125 190.415C126.438 191.962 125.062 199.398 125.062 201.712C125.062 214.194 133.946 288.738 129.76 293.982C122.699 302.827 95.3003 306.115 84.6806 309.988"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M134.7 194.196C150.081 188.703 163.498 187.198 177.492 185.289"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M179.979 185.289C185.002 184 188.419 158.428 192.502 139.5C198.002 114 196.002 91.1893 214.002 91.9996C234.502 92.9224 228.261 162.907 245.502 160.826C264.774 158.5 278.633 154.347 311.028 160.826C343.422 167.305 321.254 184.871 321.254 185.989C321.254 191.302 332.393 187.889 331.198 206.148C330.554 215.985 327.683 221.169 319.252 224.505C316.067 225.766 326.002 237 324.93 243.453C324.93 253.379 316.127 256.331 316.127 260.772C316.127 264.808 319.352 268.944 316.127 276.229C311.269 287.203 279.002 280 260.396 277.113"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M259.397 276.905C219.74 284.535 179.792 282.064 139.787 288.357"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M249 252C258.961 254.922 268.073 256.698 276.336 257.328C288.73 258.273 304.085 258.532 315 256.001"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M255 221C278.489 226.16 301.979 228.037 324 223.194"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M256 188C279.739 192.331 297 194.426 319.5 188"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <svg
+            class="animation-start"
+            id="fingers"
+            width="150px"
+            height="150px"
+            viewBox="0 0 400 400"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M192.369 286.7C108.006 254.65 135.171 179.453 161.579 109.322C163.416 104.448 182.065 58.1951 193.101 66.9873C210.429 80.7905 187.115 164.966 182.107 181.587"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M171.811 183.589C214.587 175.783 229.069 215.072 179.09 215.072C175.833 215.072 185.789 216.907 187.823 219.466C191.792 224.457 189.849 232.046 189.28 237.768"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M204.43 170.583C238.059 25.3762 263.197 225.888 216.292 200.359"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M247.088 127.321C282.148 93.7269 287.494 206.944 250.71 203.829"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M167.417 84.3771C107.845 47.6044 120.238 86.3084 141.946 113.556"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M270.628 210.166C282.72 250.353 253.156 268.426 232.083 294.479C227.137 300.593 231.119 323.791 229.863 331.868"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M169.303 290.464C165.545 304.303 164.083 318.905 163.029 333.122"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M200.666 104.774C209.449 111.047 214.227 114.199 218.231 117.32"
+              stroke="#FFF"
+              stroke-opacity="0.9"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <!-- parte de seleccion (MENU PRINCIPAL por el momento ) -->
+        <div
+          class="bg-bord p-4 position-absolute bottom-0 w-100"
+          id="seleccion"
+        >
+          <!-- subtitulo -->
+          <h2
+            class="h3 mb-0 p-3 font-bold animation-start"
+            aria-label="Se debe seleccionar un lado"
+          >
+            Selecciona un lado
+          </h2>
+          <!-- botones de la  seleccion  -->
+          <section
+            class="col-12 hstack gap-5 justify-content-center position-relative animation-start"
+          >
+            <button
+              id="btn_izquierda"
+              type="button"
+              title="boton de la izquierda"
+              class="col-4 col-md-3 col-lg-3 p-2 bord-btn bg-bord-btn rounded focus-ring d-flex align-items-center justify-content-center"
+              value="Izquierda"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#ffffff"
+                stroke-width="0.72"
+              >
+                <path
+                  d="M16.1795 3.26875C15.7889 2.87823 15.1558 2.87823 14.7652 3.26875L8.12078 9.91322C6.94952 11.0845 6.94916 12.9833 8.11996 14.155L14.6903 20.7304C15.0808 21.121 15.714 21.121 16.1045 20.7304C16.495 20.3399 16.495 19.7067 16.1045 19.3162L9.53246 12.7442C9.14194 12.3536 9.14194 11.7205 9.53246 11.33L16.1795 4.68297C16.57 4.29244 16.57 3.65928 16.1795 3.26875Z"
+                  fill="#ffffff"
+                ></path>
+              </svg>
+            </button>
+
+            <button
+              id="btn_derecha"
+              type="button"
+              title="boton de la derecha"
+              class="col-4 col-md-3 col-lg-3 p-2 bord-btn bg-bord-btn rounded focus-ring d-flex align-items-center justify-content-center"
+              value="Derecha"
+              aria-label="boton de la derecha"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#ffffff"
+                stroke-width="0.72"
+                transform="matrix(-1, 0, 0, 1, 0, 0)"
+              >
+                <path
+                  d="M16.1795 3.26875C15.7889 2.87823 15.1558 2.87823 14.7652 3.26875L8.12078 9.91322C6.94952 11.0845 6.94916 12.9833 8.11996 14.155L14.6903 20.7304C15.0808 21.121 15.714 21.121 16.1045 20.7304C16.495 20.3399 16.495 19.7067 16.1045 19.3162L9.53246 12.7442C9.14194 12.3536 9.14194 11.7205 9.53246 11.33L16.1795 4.68297C16.57 4.29244 16.57 3.65928 16.1795 3.26875Z"
+                  fill="#ffffff"
+                ></path>
+              </svg>
+            </button>
+          </section>
+          <!-- social medias y author -->
+          <div class="bottom-0 start-0 p-4 font hstack gap-4 animation-start">
+            <div class="position-relative">
+              <i id="btn-option" class="btn-op rounded-pill"
+                ><svg
+                  id="btn-abrir-op"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="#000000"
+                  stroke-width="0.00015000000000000001"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M14.9932 1.58221C15.0223 1.40736 14.9567 1.23016 14.8208 1.11645C14.6848 1.00274 14.4988 0.969519 14.3318 1.02914L0.331836 6.02914C0.143209 6.0965 0.0129867 6.26994 0.000913704 6.46987C-0.0111592 6.6698 0.0972469 6.85765 0.276398 6.94722L4.2764 8.94722C4.43688 9.02746 4.62806 9.01556 4.77735 8.91603L8.09775 6.70244L6.10957 9.18766C6.02203 9.29709 5.98442 9.43824 6.00592 9.57672C6.02742 9.7152 6.10605 9.8383 6.22265 9.91603L12.2227 13.916C12.3638 14.0101 12.5431 14.0262 12.6988 13.9588C12.8545 13.8914 12.9653 13.7496 12.9932 13.5822L14.9932 1.58221Z"
+                      fill="#ffffff"
+                    ></path>
+                  </g></svg
+              ></i>
+              <i
+                id="primer-opcion"
+                class="btn-option position-absolute top-0 end-0"
+              >
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/messages/e2ee/t/26953876924211854"
+                  title="messenger"
+                  aria-label="messenger"
+                  class=""
+                >
+                  <svg
+                    class=""
+                    width="42px"
+                    height="42px"
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#ffffff"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                          }
+                        </style>
+                      </defs>
+                      <g id="ic-social-media-messanger">
+                        <path
+                          class="cls-1"
+                          d="M17.35,2.65A12.65,12.65,0,0,0,9.92,25.54l.41,3.82,3.22-2a12.9,12.9,0,0,0,3.8.58,12.66,12.66,0,0,0,0-25.32Z"
+                        ></path>
+                        <polyline
+                          class="cls-1"
+                          points="10.78 17.34 14.71 13.41 19.9 18.6 23.93 14.57"
+                        ></polyline>
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+              </i>
+              <i
+                id="segunda-opcion"
+                class="btn-option position-absolute top-0 end-0"
+              >
+                <a
+                  href="https://wa.link/c360rj"
+                  target="_blank"
+                  aria-label="Whatsapp"
+                  title="Whatsapp"
+                  class=""
+                >
+                  <svg
+                    width="42px"
+                    height="42px"
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                          }
+                        </style>
+                      </defs>
+                      <g id="ic-social-media-whatsapp">
+                        <path
+                          class="cls-1"
+                          d="M17.35,2.65A12.65,12.65,0,0,0,9.92,25.54l.41,3.82,3.22-2a12.9,12.9,0,0,0,3.8.58,12.66,12.66,0,0,0,0-25.32Z"
+                        ></path>
+                        <path
+                          class="cls-1"
+                          d="M14.21,10.17l1.65,1.65a1.13,1.13,0,0,1,0,1.61h0a1.15,1.15,0,0,0,0,1.61l2.45,2.45a1.15,1.15,0,0,0,1.61,0h0a1.13,1.13,0,0,1,1.61,0l1.66,1.66a1.15,1.15,0,0,1,0,1.61l-.58.58a1.24,1.24,0,0,1-.56.31h0A8.63,8.63,0,0,1,11.71,11.31h0a1.11,1.11,0,0,1,.31-.56l.58-.58A1.13,1.13,0,0,1,14.21,10.17Z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+              </i>
+            </div>
+
+            <div class="row position-relative ms-auto">
+              <q class="font">by: larry1sf</q>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -381,8 +812,11 @@
           class="bg-lados rounded my-auto d-flex flex-column align-items-center justify-content-center"
         >
           <!-- img o logo -->
-          <div class="mx-auto w-50 rounded-pill my-bord-logo p-3 mb-5 z">
+          <div
+            class="mx-auto w-50 rounded-pill my-bord-logo p-3 mb-5 z animation-start"
+          >
             <img
+              title="usuario_logo"
               src="../public/imgs/logo.png"
               tabindex="0"
               height="contain"
@@ -395,7 +829,7 @@
           <div
             id="conte-corazones_j"
             role="banner"
-            class="hstack gap-4 justify-content-center my-bord bg-bord rounded p-2 m-0 m-md-1 m-lg-2 mb-5"
+            class="hstack gap-4 justify-content-center my-bord bg-bord rounded p-2 m-0 m-md-1 m-lg-2 mb-5 animation-start"
           >
             <i title="vidas">
               <svg
@@ -489,7 +923,7 @@
           </div>
           <!-- botones de ataque -->
           <div
-            class="hstack justify-content-center align-items-center gap-1 gap-md-2 gap-lg-4 p-2 mb-3"
+            class="hstack justify-content-center align-items-center gap-1 gap-md-2 gap-lg-4 p-2 mb-3 animation-start"
             tabindex="3"
             id="poderes_j"
           >
@@ -500,6 +934,7 @@
               class="rounded my-bord bg-bord my-btn"
             >
               <img
+                title="tijeras"
                 src="../public/svgs/crossing-fingers-revert.svg"
                 height="80%"
                 width="80%"
@@ -514,6 +949,7 @@
               class="rounded my-bord bg-bord my-btn"
             >
               <img
+                title="papel"
                 src="../public/svgs/hand-revert.svg"
                 height="80%"
                 width="80%"
@@ -528,6 +964,7 @@
               class="rounded my-bord bg-bord my-btn"
             >
               <img
+                title="piedra"
                 src="../public/svgs/fist-revert.svg"
                 height="80%"
                 width="80%"
@@ -539,9 +976,9 @@
           <!-- texto de informacion añadida. -->
           <div
             id="aviso_j"
-            class="font-bold my-bord bg-bord rounded fs-6 fw-semibold p-0 p-sm-1 p-md-2 p-xl-3 p-lg-2 m-0 m-sm-1 m-md-2 m-lg-3"
+            class="my-bord bg-bord rounded fs-6 p-0 p-sm-1 p-md-2 p-xl-3 p-lg-2 m-0 m-sm-1 m-md-2 m-lg-3 animation-start"
           >
-            <p class="text-truncate text-wrap font">
+            <p class="text-truncate text-wrap fw-light font">
               seleciona tu ataque para eliminar vidas de la ia, ten encuenta que
               @l evalua tus ataques
             </p>
@@ -549,9 +986,9 @@
           <!-- aviso de ganadores -->
           <div
             tabindex="7"
-            class="my-bord bg-bord fs-6 fw-semibold rounded p-0 p-sm-1 p-lg-2 m-0 mt-5 m-md-1 mt-md-5 mt-lg-5 g-p"
+            class="my-bord bg-bord rounded p-0 p-sm-1 p-lg-2 m-0 mt-5 m-md-1 mt-md-5 mt-lg-5 g-p animation-start"
           >
-            <p class="mb-0 px-0 px-md-2 px-lg-3 py-1">
+            <p class="fs-6 font mb-0 px-0 px-md-2 px-lg-3 py-1">
               ganador o perdedir aviso
             </p>
           </div>
